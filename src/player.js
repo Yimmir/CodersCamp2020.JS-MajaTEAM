@@ -14,3 +14,8 @@ const player = {
         this.score = score;
     }
 }
+
+const playerName = document.getElementsByTagName("input");
+const buttonStart = document.getElementById("startButton");
+
+buttonStart.addEventListener("click", () => player.name = playerName);
