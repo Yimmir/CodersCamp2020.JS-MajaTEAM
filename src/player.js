@@ -1,21 +1,23 @@
 const player = {
     name: '',
     score: 0,
-    get name() {
+    get playerName() {
         return this.name;
     },
-    set name (name) {
+    set playerName (name) {
         this.name = name;
     },
-    get score() {
+    get scoreInfo() {
         return this.score;
     },
-    set score(score) {
-        this.score = score;
+    set scoreInfo(newScore) {
+        this.score = newScore;
     }
 }
 
-const playerName = document.getElementsByTagName("input");
-const buttonStart = document.getElementById("startButton");
+function saveName() {
+    const newPlayer = document.getElementsByTagName("input")[0];
+    player.playerName = newPlayer.value;
+}
 
-buttonStart.addEventListener("click", () => player.name = playerName);
+export {saveName, player};
