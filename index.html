@@ -1,20 +1,58 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>CodersCamp2020 | Star Wars API QUIZ</title>
-    <link rel="stylesheet" href="styles/App.css"/>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-          rel="stylesheet">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CodersCamp2020 | Star Wars API QUIZ</title>
+    <link rel="stylesheet" href="styles/style.css" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
-<div id="swquiz-app">
-</div>
+    <div class="quiz-section">
+        <div class="header-section">
+            <div class="logo-section"><img src="images/starwars-logo.png" alt="starwars-logo"></div>
+            <div class="menu-section">
+                <ul>
+                    <li><a href="#">People</a></li>
+                    <li><a href="#">Vehicles</a></li>
+                    <li><a href="#">Starships</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mode-section">
+            <div class="photo-section">
+                <div class="image-wrapper"></div>
+                <button class="btn-settings">Settings</button>
+            </div>
+            <div class="game-section">
+                <div class="question">
+                    <p>Who is it?</p>
+                </div>
+                <div class="rules">
+                    <h1>Rules</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ullam voluptatem fuga itaque
+                        quibusdam. Modi, natus voluptatibus. Facere ratione quibusdam dicta sequi cum? Dolorem placeat
+                        facilis laudantium, officiis, nam dignissimos cupiditate qui nihil minima corrupti vero a
+                        laborum saepe doloremque iste voluptates dolore neque fugit pariatur. Quo incidunt sequi itaque.
+                    </p>
+                </div>
+                <div class="btn-wrapper">
+                    <button class="scoreboard">Scoreboard</button>
+                    <button class="play">Play the game</button>
+                </div>
 
-<script src="src/index.js"></script>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/index.js"></script>
 </body>
+
 </html>
