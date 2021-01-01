@@ -30,7 +30,7 @@ const makeStars = (count) => {
     return out;
   }
   
-  let stars = makeStars(10000);
+  let stars = makeStars(5000);
 
   const clear = () => {
     c.fillStyle = "black";
@@ -67,7 +67,7 @@ const tick = time => {
     let elapsed = time - prevTime;
     prevTime = time;
   
-    moveStars(elapsed*0.1);
+    moveStars(elapsed*0.16);
   
     clear();
   

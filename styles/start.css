@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&display=swap');
+
+body {
+    font-family: 'Archivo Narrow', sans-serif;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    width: 30%;
+    margin-left: -15%;
+    color: #1B7DEB;
+    font-size: 4em;
+    text-align: center;
+}
+
+.input {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    margin-left: -7.5%;
+    width: 15%;
+}
+
+.input input {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(255, 255, 255);
+    margin: 2%;
+    font-size: 2em;
+    text-align: center;
+}
