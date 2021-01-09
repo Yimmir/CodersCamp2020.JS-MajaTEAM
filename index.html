@@ -14,59 +14,63 @@
 </head>
 
 <body>
-    <div id="div-play" class="play">
+    <header>
         <img src="assets/img/logo.svg" alt="starwars-logo">
-        <button id="button-play" class="button-play">play</button>
-        <a href="#">credits</a>
-    </div>
-
-    <div id="div-start" class="start">
-        <img src="images/starwars-logo.png" alt="starwars-logo">
-        <div class="input-wrapper">
-            <p>enter your name</p>
-            <input type="text">
-            <button id="button-next" class="button-next">next</button>
+    </header>
+    <main>
+        <div id="div-play" class="play">
+            <button id="button-play" class="button-play">play</button>
         </div>
-        <a href="#">credits</a>
-    </div>
 
-    <div id="div-menu" class="menu">
-        <img src="images/starwars-logo.png" alt="starwars-logo">
-        <div class="input-wrapper">
-            <p>May the force be with you. Test your star wars knowledge and defeat the empire.</p>
-            <button id="button-start">start</button>
-            <button id="button-rules">rules</button>
-            <button id="button-highscores">highscores</button>
+        <div id="div-start" class="start">
+            <div class="input-wrapper">
+                <p>enter your name</p>
+                <input type="text">
+                <button id="button-next" class="button-next">next</button>
+            </div>
         </div>
-        <a href="#">credits</a>
-    </div>
 
-    <div id="div-categories" class="categories">
-        <img src="images/starwars-logo.png" alt="starwars-logo">
-        <div class="input-wrapper">
-            <p>choose the mode</p>
-            <div class="div-people">
-                <p>people</p>
-                <div class="description">
-                    <p>Can you recognize all the clone troopers? Test your character knowledge.</p>
-                </div>
+        <div id="div-menu" class="menu">
+            <div class="input-wrapper">
+                <p>May the force be with you. Test your star wars knowledge and defeat the empire.</p>
+                <button id="button-start">start</button>
+                <button id="button-rules">rules</button>
+                <button id="button-highscores">highscores</button>
             </div>
-            <div class="div-vehicles">
-                <p>vehicles</p>
-                <div class="description">
-                    <p>What is AT-AT or AT-ST? Can you guess all the vehicles from the Universe?</p>
-                </div>
-            </div>
-            <div class="div-starships">
-                <p>starships</p>
-                <div class="description">
-                    <p>Can you tell the diffrence between TIE fighter TIE interceptor? Try yourself!</p>
-                </div>
-            </div>
-            <button id="button-startquiz" class="button-startquiz">start quiz</button>
         </div>
-        <a href="#">credits</a>
-    </div>
+
+        <div id="div-categories" class="categories">
+            <div class="input-wrapper">
+                <p>choose the mode</p>
+                <div class="div-people">
+                    <p>people</p>
+                    <div class="description">
+                        <p>Can you recognize all the clone troopers? Test your character knowledge.</p>
+                    </div>
+                </div>
+                <div class="div-vehicles">
+                    <p>vehicles</p>
+                    <div class="description">
+                        <p>What is AT-AT or AT-ST? Can you guess all the vehicles from the Universe?</p>
+                    </div>
+                </div>
+                <div class="div-starships">
+                    <p>starships</p>
+                    <div class="description">
+                        <p>Can you tell the diffrence between TIE fighter TIE interceptor? Try yourself!</p>
+                    </div>
+                </div>
+                <button id="button-startquiz" class="button-startquiz">start quiz</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-wrapper">
+            <img src="assets/img/arrows.svg" alt="creditsArrow">
+            <p>CREDITS</p>
+            <img src="assets/img/arrows.svg" alt="creditsArrow">
+        </div>
+    </footer>
 
     <script src="src/index.js"></script>
 </body>
