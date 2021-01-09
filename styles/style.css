@@ -5,6 +5,24 @@
     font-family: sans-serif;
 }
 
+/* Import i deklaracja fontów */
+
+@font-face {
+    font-family: "swTheme";
+    src: url("/assets/fonts/Starjedi.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: swText;
+    src: url("/assets/fonts/NewsGothicStd.otf") format("opentype");
+}
+
+@font-face {
+    font-family: swText;
+    src: url("/assets/fonts/NewsGothicStd-Bold.otf") format("opentype");
+    font-weight: bold;
+}
+
 body {
     height: 100vh;
     width: 100vw;
@@ -38,6 +56,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: bold;
+    font-family: 'swTheme', sans-serif; /* test fonta swTheme */
 }
 
 .play a {
@@ -85,6 +104,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: yellow;
+    font-family: swText, sans-serif; /* test fonta swText:bold */
 }
 
 .start .input-wrapper input {
