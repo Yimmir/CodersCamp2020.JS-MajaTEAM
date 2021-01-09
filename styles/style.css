@@ -11,172 +11,244 @@ body {
     background-color: black;
 }
 
-.quiz-section {
+/* I ekran */
+.play {
+    display: block;
+}
+
+.play img {
     position: absolute;
-    max-width: 1400px;
-    height: 95%;
-    width: 95%;
-    /* background-color: royalblue; */
+    width: 240px;
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.play .button-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 60px;
+    width: 200px;
+    background-color: yellow;
+    border: none;
+    border-radius: 10px;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.play a {
+    position: absolute;
+    bottom: 10px;
+    font-size: 28px;
+    color: yellow;
+    text-decoration: none;
+    letter-spacing: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* II ekran */
+.start {
+    display: none;
+}
+
+.start img {
+    position: absolute;
+    width: 240px;
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.start .input-wrapper {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    height: 20vh;
+    width: 80vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.start .input-wrapper p {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: yellow;
+}
+
+.start .input-wrapper input {
+    width: 100%;
+    height: 50px;
+    font-size: 24px;
+    padding: 10px;
+    border: 5px solid yellow;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+.start .input-wrapper button {
+    background-color: transparent;
+    color: yellow;
+    font-size: 24px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.start a {
+    position: absolute;
+    bottom: 10px;
+    font-size: 28px;
+    color: yellow;
+    text-decoration: none;
+    letter-spacing: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+/* III ekran  */
+.menu {
+    display: none;
+}
+
+.menu img {
+    position: absolute;
+    width: 240px;
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.menu .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    height: 40vh;
+    width: 80vw;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.header-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 20%;
-    /* background-color: red; */
-}
-
-.mode-section {
-    width: 100%;
-    height: 80%;
-    /* background-color: green; */
-}
-
-.logo-section {
-    height: 100%;
-    width: 25%;
-
-}
-
-.logo-section img {
-    display: block;
-    margin: 0 auto;
-    height: 100%;
-}
-
-.menu-section {
-    margin: 0;
-    padding: 0;
-    height: 60%;
-    width: 70%;
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 2px 2px 10px white;
-}
-
-.menu-section ul {
-    display: flex;
-    justify-content: space-around;
-    height: 100%;
-}
-
-.menu-section ul li {
-    display: flex;
-    width: 25%;
-    list-style: none;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-}
-
-.menu-section ul li a {
-    color: black;
-    text-transform: uppercase;
-    text-decoration: none;
-}
-
-.mode-section {
-    display: flex;
-}
-
-.mode-section .photo-section {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: center;
-    width: 30%;
-    height: 100%;
-    /* background-color: blue; */
-}
-
-.mode-section .photo-section div {
-    border: 3px solid black;
-    box-shadow: 2px 2px 10px #444;
-    height: 50%;
-    width: 60%;
-    background-image: url("../images/starwars-character.png");
-    background-size: cover;
-}
-
-
-
-.mode-section .photo-section .btn-settings {
-    align-self: flex-end;
-    background-color: white;
-    border: 3px solid white;
-    border-radius: 15px;
-    height: 50px;
-    width: 200px;
-    padding: 10px 30px;
+.menu .input-wrapper p {
+    padding: 10px 0;
     font-size: 18px;
+    text-align: justify;
+    font-weight: bold;
+    color: yellow;
+}
+
+.menu .input-wrapper button {
+    width: 100%;
+    height: 46px;
+    background-color: yellow;
+    border: none;
+    border-radius: 10px;
+    font-size: 26px;
     font-weight: bold;
     letter-spacing: 1px;
-    cursor: pointer;
-    box-shadow: 2px 2px 10px white;
+    text-transform: uppercase;
 }
 
-.mode-section .game-section {
+.menu a {
+    position: absolute;
+    bottom: 10px;
+    font-size: 28px;
+    color: yellow;
+    text-decoration: none;
+    letter-spacing: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* IV ekran */
+.categories {
+    display: none;
+}
+
+.categories img {
+    position: absolute;
+    width: 240px;
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.categories .input-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
-    width: 70%;
-    /* background-color: yellowgreen; */
-}
-
-.mode-section .game-section .question {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 15%;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 2px 2px 10px white;
+    position: absolute;
+    height: 62vh;
+    width: 95vw;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    border: 2px solid yellow;
+    padding: 6px;
 }
 
-.mode-section .game-section .question p {
-    font-size: 30px;
-}
-
-.mode-section .game-section .rules {
-    width: 100%;
-    height: 65%;
-    padding: 20px 35px;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 2px 2px 10px white;
-}
-
-.mode-section .game-section .rules p {
-    font-size: 20px;
-    margin-top: 20px;
-    text-align: justify;
-}
-
-.mode-section .game-section .btn-wrapper {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 50px;
-    /* background-color: red; */
-}
-
-.mode-section .game-section button {
-    height: 50px;
-    width: 400px;
-    background-color: white;
-    border: 3px solid white;
-    box-shadow: 2px 2px 10px white;
-    border-radius: 15px;
-    padding: 10px 30px;
-    font-size: 18px;
+.categories .input-wrapper>p {
+    text-transform: uppercase;
     font-weight: bold;
-    letter-spacing: 1px;
-    cursor: pointer;
+    font-size: 16px;
+}
+
+.categories .input-wrapper>div {
+    padding: 5px;
+    background-color: yellow;
+    color: black;
+    border-radius: 8px;
+}
+
+.categories .input-wrapper>div>p {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+}
+
+.categories .input-wrapper>div>div {
+    background-color: black;
+    color: white;
+    text-align: justify;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.categories .button-startquiz {
+    background-color: transparent;
+    color: yellow;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+}
+
+.categories a {
+    position: absolute;
+    bottom: 10px;
+    font-size: 28px;
+    color: yellow;
+    text-decoration: none;
+    letter-spacing: 5px;
+    left: 50%;
+    transform: translateX(-50%);
 }
