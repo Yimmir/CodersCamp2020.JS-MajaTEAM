@@ -5,6 +5,11 @@
     font-family: sans-serif;
 }
 
+/* Deklaracja zmiennych */
+:root {
+    --yelow: #ffe81f;
+}
+
 /* Import i deklaracja fontów */
 
 @font-face {
@@ -49,14 +54,14 @@ body {
     transform: translate(-50%, -50%);
     height: 60px;
     width: 200px;
-    background-color: yellow;
+    background-color: var(--yelow); /* test var yellow */
     border: none;
     border-radius: 10px;
     font-size: 32px;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: bold;
-    font-family: 'swTheme', sans-serif; /* test fonta swTheme */
+    font-family: swTheme, sans-serif; /* test fonta swTheme */
 }
 
 .play a {
