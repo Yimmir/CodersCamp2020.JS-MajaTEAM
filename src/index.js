@@ -17,14 +17,21 @@ const btnPlay = document.getElementById("button-play");
 const btnNext = document.getElementById("button-next");
 const btnStart = document.getElementById("button-start");
 
+let userNickname;
+
 btnPlay.addEventListener('click', () => {
     divPlay.style.display = "none";
     divStart.style.display = "block";
 })
 
 btnNext.addEventListener('click', () => {
-    divStart.style.display = "none";
-    divMenu.style.display = "block";
+    userNickname = document.getElementById("nickname").value;
+    if (userNickname.length >= 3) {
+        divStart.style.display = "none";
+        divMenu.style.display = "block";
+    } else {
+        alert('Name to short!')
+    }
 })
 
 btnStart.addEventListener('click', () => {

@@ -13,7 +13,7 @@
 /* Import i deklaracja fontów */
 
 @font-face {
-    font-family: "swTheme";
+    font-family: swTheme;
     src: url("/assets/fonts/Starjedi.ttf") format('truetype');
 }
 
@@ -39,6 +39,7 @@ body {
     background-color: black;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 header {
@@ -54,7 +55,8 @@ header img {
 
 main {
     height: 77%;
-    background-color: blueviolet; /* bgColor tylko dla dev */
+    /* background-color: blueviolet;  */
+    /* bgColor tylko dla dev */
 }
 
 footer {
@@ -98,30 +100,26 @@ footer {
 
 .play .button-play {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50vh;
+    left: 50vw;
     transform: translate(-50%, -50%);
-    height: 60px;
-    width: 200px;
+    height: 75px;
+    width: 270px;
     background-color: var(--yelow); /* test var yellow */
     border: none;
-    border-radius: 10px;
-    font-size: 32px;
+    border-radius: 5px;
+    font-size: 40px;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: bold;
-    font-family: swTheme, sans-serif; /* test fonta swTheme */
+    font-family: swTheme, sans-serif; 
+    padding-bottom: 7px;
+    box-shadow: 0px 0px 20px 0px rgba(255,232,31,0.75);
+    
 }
 
-.play a {
-    position: absolute;
-    bottom: 10px;
-    font-size: 28px;
-    color: yellow;
-    text-decoration: none;
-    letter-spacing: 5px;
-    left: 50%;
-    transform: translateX(-50%);
+.button-play:hover {
+    box-shadow: 0px 0px 15px 10px rgba(255,232,31,0.60);
 }
 
 /* II ekran */
@@ -129,70 +127,59 @@ footer {
     display: none;
 }
 
-.start img {
-    position: absolute;
-    width: 240px;
-    height: auto;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 .start .input-wrapper {
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     position: absolute;
-    height: 20vh;
-    width: 80vw;
-    top: 50%;
+    /* width: 80vw; */
+    top: calc(50% + 20px);
     left: 50%;
     transform: translate(-50%, -50%);
 
 }
 
-.start .input-wrapper p {
+.input-wrapper label {
     font-size: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
     letter-spacing: 1px;
-    color: yellow;
-    font-family: swText, sans-serif; /* test fonta swText:bold */
+    color: var(--yelow);
+    font-family: swTheme, sans-serif;
 }
 
 .start .input-wrapper input {
-    width: 100%;
-    height: 50px;
-    font-size: 24px;
+    height: 75px;
+    width: 270px;
+    border-radius: 5px;
+    font-size: 30px;
     padding: 10px;
-    border: 5px solid yellow;
-    background-color: black;
+    border: 5px solid var(--yelow);
+    box-shadow: 0px 0px 10px 0px rgba(255,232,31,0.75);
+    background-color: rgba(0, 0, 0, 0.75);
     color: white;
+    font-family: swText, sans-serif;
     font-weight: bold;
+    text-align: center;
+}
+
+.input-wrapper input:focus {
+    box-shadow: 0px 0px 15px 5px rgba(255,232,31,0.75);
 }
 
 .start .input-wrapper button {
     background-color: transparent;
-    color: yellow;
-    font-size: 24px;
+    color: var(--yelow);
     border: none;
-    text-transform: uppercase;
-    font-weight: bold;
+    font-size: 50px;
+    letter-spacing: 1px;
+    font-family: swTheme, sans-serif;
+    text-shadow: 0px 0px 5px rgba(255,232,31,0.75);
 }
 
-.start a {
-    position: absolute;
-    bottom: 10px;
-    font-size: 28px;
-    color: yellow;
-    text-decoration: none;
-    letter-spacing: 5px;
-    left: 50%;
-    transform: translateX(-50%);
+.input-wrapper button:hover {
+    text-shadow: 0px 0px 15px rgba(255,232,31,0.60);
 }
-
-
 
 /* III ekran  */
 .menu {
