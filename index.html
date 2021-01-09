@@ -1,20 +1,78 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>CodersCamp2020 | Star Wars API QUIZ</title>
-    <link rel="stylesheet" href="styles/App.css"/>
+    <link rel="stylesheet" href="styles/style.css" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-          rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
+    <header>
+        <img src="assets/img/logo.svg" alt="starwars-logo">
+    </header>
+    <main>
+        <div id="div-play" class="play">
+            <button id="button-play" class="button-play">play</button>
+        </div>
 
-<div id="swquiz-app">
-</div>
+        <div id="div-start" class="start">
+            <div class="input-wrapper" id="nickname-form">
+                <label for="nickname">enter your name</label>
+                <input type="text" id="nickname" name="nickname" maxlength="15" autocomplete="off" spellcheck="false">
+                <button id="button-next" class="button-next">next</button>
+            </div>
+        </div>
 
-<script src="src/index.js"></script>
+        <div id="div-menu" class="menu">
+            <div class="input-wrapper">
+                <p>May the force be with you. Test your star wars knowledge and defeat the empire.</p>
+                <button id="button-start">start</button>
+                <button id="button-rules">rules</button>
+                <button id="button-highscores">highscores</button>
+            </div>
+        </div>
+
+        <div id="div-categories" class="categories">
+            <div class="input-wrapper">
+                <p>choose the mode</p>
+                <div class="div-people">
+                    <p>people</p>
+                    <div class="description">
+                        <p>Can you recognize all the clone troopers? Test your character knowledge.</p>
+                    </div>
+                </div>
+                <div class="div-vehicles">
+                    <p>vehicles</p>
+                    <div class="description">
+                        <p>What is AT-AT or AT-ST? Can you guess all the vehicles from the Universe?</p>
+                    </div>
+                </div>
+                <div class="div-starships">
+                    <p>starships</p>
+                    <div class="description">
+                        <p>Can you tell the diffrence between TIE fighter TIE interceptor? Try yourself!</p>
+                    </div>
+                </div>
+                <button id="button-startquiz" class="button-startquiz">start quiz</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-wrapper">
+            <img src="assets/img/arrows.svg" alt="creditsArrow">
+            <p>CREDITS</p>
+            <img src="assets/img/arrows.svg" alt="creditsArrow">
+        </div>
+    </footer>
+
+    <script src="src/index.js"></script>
 </body>
+
 </html>
