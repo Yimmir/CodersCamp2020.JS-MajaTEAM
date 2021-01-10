@@ -15,9 +15,4 @@ const player = {
     }
 }
 
-function saveName() {
-    const newPlayer = document.getElementsByTagName("input")[0];
-    player.playerName = newPlayer.value;
-}
-
-export {saveName, player};
+export {player};
