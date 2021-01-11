@@ -1,7 +1,9 @@
 // import 'regenerator-runtime/runtime' //async/await with Parcel
 // import {App} from "./app/App";
 
-import { player } from "./player.js";
+import {
+    player
+} from "./player.js";
 
 // const ONE_SECOND_MILLIS = 1000;
 // const SW_API_BASE_URL = process.env.SW_API_BASE_URL || "https://swapi.dev/api";
@@ -14,10 +16,15 @@ const divStart = document.getElementById("div-start");
 const divPlay = document.getElementById("div-play");
 const divMenu = document.getElementById("div-menu");
 const divCategories = document.getElementById("div-categories");
+const divQuiz = document.getElementById("div-quiz");
+const divHighscores = document.getElementById("div-highscores");
 
 const btnPlay = document.getElementById("button-play");
 const btnNext = document.getElementById("button-next");
 const btnStart = document.getElementById("button-start");
+const btnStartQuiz = document.getElementById("button-startquiz");
+const btnMainMenu = document.getElementById("button-mainmenu");
+const btnHighscores = document.getElementById("button-highscores");
 
 btnPlay.addEventListener('click', () => {
     divPlay.style.display = "none";
@@ -38,4 +45,20 @@ btnNext.addEventListener('click', () => {
 btnStart.addEventListener('click', () => {
     divMenu.style.display = "none";
     divCategories.style.display = "block";
+})
+
+btnStartQuiz.addEventListener('click', () => {
+    divCategories.style.display = "none";
+    divQuiz.style.display = "block";
+
+})
+
+btnHighscores.addEventListener('click', () => {
+    divMenu.style.display = "none";
+    divHighscores.style.display = "block";
+})
+
+btnMainMenu.addEventListener('click', () => {
+    divHighscores.style.display = "none";
+    divMenu.style.display = "block";
 })
