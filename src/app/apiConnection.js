@@ -7,3 +7,13 @@ export const loadDataFromAPI = (baseURL, mode) => {
     }
   }
 }
+
+export const loadImage = (baseURL, mode) => {
+  return {
+    byID(id) {
+      return fetch(`${baseURL}/${mode}/${id}.jpg`)
+        .then(res => res.blob())
+        .then(async imageBlob => Buffer.from(await imageBlob.arrayBuffer()).toString('base64'))
+    }
+  }
+}
