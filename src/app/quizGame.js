@@ -1,5 +1,5 @@
-import {generateQuestion} from './questionGenarator';
-import {getAvailableIDs} from './gameModes'
+import {generateQuestion} from './questionGenerator';
+import {getAvailableIDs} from './gameMode'
 import {getRandomIntInclusive} from './random'
 
 const questionElement = document.getElementsByClassName('question-image');

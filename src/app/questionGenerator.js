@@ -1,5 +1,5 @@
 import {loadDataFromAPI, loadImage} from './apiConnection'
-import {getAvailableIDs} from './gameModes'
+import {getAvailableIDs} from './gameMode'
 import {getRandomIntInclusive} from './random'
 
 const imageURL = 'static/assets/img/modes'
