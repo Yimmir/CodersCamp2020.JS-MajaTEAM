@@ -1,6 +1,8 @@
 // import 'regenerator-runtime/runtime' //async/await with Parcel
 // import {App} from "./app/App";
 
+import { player } from "./player";
+
 // const ONE_SECOND_MILLIS = 1000;
 // const SW_API_BASE_URL = process.env.SW_API_BASE_URL || "https://swapi.dev/api";
 // const QUIZ_MAX_TIME = process.env.QUIZ_MAX_TIME_SECONDS ? process.env.QUIZ_MAX_TIME_SECONDS * ONE_SECOND_MILLIS : 120 * ONE_SECOND_MILLIS;
@@ -17,16 +19,15 @@ const btnPlay = document.getElementById("button-play");
 const btnNext = document.getElementById("button-next");
 const btnStart = document.getElementById("button-start");
 
-let userNickname;
-
 btnPlay.addEventListener('click', () => {
     divPlay.style.display = "none";
     divStart.style.display = "block";
 })
 
 btnNext.addEventListener('click', () => {
-    userNickname = document.getElementById("nickname").value;
+    const userNickname = document.getElementById("nickname").value;
     if (userNickname.length >= 3) {
+        player.playerName = userNickname;
         divStart.style.display = "none";
         divMenu.style.display = "block";
     } else {
