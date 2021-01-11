@@ -11,3 +11,8 @@ const image = loadImage(imageURL, mode);
 const getQuestionImage = async(id) => {
   return await image.byID(id);
 }
+
+const getCorrectAnswer = async(id) => {
+  const data = await API.byID(id);
+  return {content: data.name, isCorrect: true}
+}
