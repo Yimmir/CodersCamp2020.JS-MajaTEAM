@@ -1,17 +1,17 @@
 const player = {
-    name: '',
-    score: 0,
+    _name: '',
+    _score: 0,
     get playerName() {
-        return this.name;
+        return this._name;
     },
     set playerName (name) {
-        this.name = name;
+        this._name = name;
     },
     get scoreInfo() {
-        return this.score;
+        return this._score;
     },
     set scoreInfo(newScore) {
-        this.score = newScore;
+        this._score = newScore;
     }
 }
 
