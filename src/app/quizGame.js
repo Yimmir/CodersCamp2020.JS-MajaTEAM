@@ -1,6 +1,6 @@
 import {generateQuestion} from './questionGenerator';
-import {getAvailableIDs} from './gameMode'
-import {getRandomIntInclusive} from './random'
+import {getAvailableIDs} from './gameMode';
+import {getRandomIntInclusive} from './random';
 
 const questionElement = document.getElementsByClassName('question-image');
 const answerElements = document.getElementsByClassName('answer');
@@ -13,12 +13,12 @@ let possiblityToAnswer = false;  //used to prevent answering mulitple times the 
 export const startQuiz = (mode) => {
   totalScore = 0;
   questionCounter = 0;
-  availableQuestionsIDs = [...getAvailableIDs(mode)]
+  availableQuestionsIDs = [...getAvailableIDs(mode)];
   getQuestion(mode);
 }
 
 const getQuestion = async(mode) => {
-  const questionIndex = getRandomIntInclusive(0, availableQuestionsIDs.length-1)
+  const questionIndex = getRandomIntInclusive(0, availableQuestionsIDs.length-1);
   ++questionCounter;
   // console.log("Question nr:" + questionCounter);
   currentQuestionID = availableQuestionsIDs[questionIndex];
@@ -29,7 +29,7 @@ const getQuestion = async(mode) => {
 const displayQuestion = async(id) => {
   const question  = await generateQuestion(id);
   // console.log(question.answers);
-  questionElement[0].style.backgroundImage = `url("data:image/png;base64,${question.questionImage}")`
+  questionElement[0].style.backgroundImage = `url("data:image/png;base64,${question.questionImage}")`;
   Array.from(answerElements).forEach((answer, index) => {
     answer.innerText = question.answers[index].content;
     if(question.answers[index].isCorrect) answer.dataset.type = "correct";
