@@ -19,7 +19,8 @@ export const startQuiz = (mode) => {
 
 const getQuestion = async(mode) => {
   const questionIndex = getRandomIntInclusive(0, availableQuestionsIDs.length-1)
-  console.log(++questionCounter);
+  ++questionCounter;
+  // console.log("Question nr:" + questionCounter);
   currentQuestionID = availableQuestionsIDs[questionIndex];
   availableQuestionsIDs.splice(questionIndex, 1);    //delete current question from the available question array
   await displayQuestion(currentQuestionID);
@@ -27,7 +28,7 @@ const getQuestion = async(mode) => {
 
 const displayQuestion = async(id) => {
   const question  = await generateQuestion(id);
-  console.log(question)
+  // console.log(question.answers);
   questionElement[0].style.backgroundImage = `url("data:image/png;base64,${question.questionImage}")`
   Array.from(answerElements).forEach((answer, index) => {
     answer.innerText = question.answers[index].content;
@@ -45,6 +46,7 @@ const checkAnswer = (e) => {
   if (selectedAnswer.dataset.type === "correct") {
     totalScore++;
   }
+  // console.log("Total score: " + totalScore);
   getQuestion();
 }
 
