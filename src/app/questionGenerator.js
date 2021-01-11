@@ -8,6 +8,16 @@ const mode = 'starships';                     //for testing
 const API = loadDataFromAPI(apiURL, mode);
 const image = loadImage(imageURL, mode);
 
+export const generateQuestion = async(id) => {
+  const questionImage = await getQuestionImage(id);
+  const correctAnswer = await getCorrectAnswer(id);
+  const incorrectAnswers = await getIncorrectAnswers(id);
+  const answers = incorrectAnswers;
+  const randomIndex = getRandomIntInclusive(0, 3)
+  answers.splice(randomIndex, 0, correctAnswer);
+  return {questionImage, answers}
+}
+
 const getQuestionImage = async(id) => {
   return await image.byID(id);
 }
