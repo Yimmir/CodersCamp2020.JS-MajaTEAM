@@ -1,7 +1,9 @@
 import {generateQuestion} from './questionGenerator';
-import {getAvailableIDs} from './gameMode';
+import {getModeProperties} from './gameMode';
 import {getRandomIntInclusive} from './random';
 
+
+const mode = getModeProperties('starships');
 const questionElement = document.getElementsByClassName('question-image');
 const answerElements = document.getElementsByClassName('answer');
 let totalScore = 0;
@@ -10,14 +12,14 @@ let questionCounter = 0;
 let availableQuestionsIDs = [];
 let possiblityToAnswer = false;  //used to prevent answering mulitple times the same question
 
-export const startQuiz = (mode) => {
+export const startQuiz = () => {
   totalScore = 0;
   questionCounter = 0;
-  availableQuestionsIDs = [...getAvailableIDs(mode)];
-  getQuestion(mode);
+  availableQuestionsIDs = [...mode.availableIDs];
+  getQuestion();
 }
 
-const getQuestion = async(mode) => {
+const getQuestion = async() => {
   const questionIndex = getRandomIntInclusive(0, availableQuestionsIDs.length-1);
   ++questionCounter;
   // console.log("Question nr:" + questionCounter);
@@ -27,7 +29,7 @@ const getQuestion = async(mode) => {
 }
 
 const displayQuestion = async(id) => {
-  const question  = await generateQuestion(id);
+  const question  = await generateQuestion(mode, id);
   // console.log(question.answers);
   questionElement[0].style.backgroundImage = `url("data:image/png;base64,${question.questionImage}")`;
   Array.from(answerElements).forEach((answer, index) => {
