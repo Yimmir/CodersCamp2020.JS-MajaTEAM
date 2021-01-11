@@ -2,7 +2,6 @@ import {generateQuestion} from './questionGenerator';
 import {getModeProperties} from './gameMode';
 import {getRandomIntInclusive} from './random';
 
-
 const mode = getModeProperties('starships');
 const questionElement = document.getElementsByClassName('question-image');
 const answerElements = document.getElementsByClassName('answer');
@@ -20,6 +19,7 @@ export const startQuiz = () => {
 }
 
 const getQuestion = async() => {
+  // if(availableQuestionsIDs.length === 0) availableQuestionsIDs = [...mode.availableIDs];  //reload all questions when over
   const questionIndex = getRandomIntInclusive(0, availableQuestionsIDs.length-1);
   ++questionCounter;
   // console.log("Question nr:" + questionCounter);
