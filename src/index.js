@@ -39,7 +39,7 @@ btnNext.addEventListener('click', () => {
     if (userNickname.length >= 3) {
         player.playerName = userNickname;
         divStart.style.display = "none";
-        divMenu.style.display = "block";
+        divMenu.style.display = "flex";
     } else {
         alert('Name to short!')
     }
@@ -47,7 +47,7 @@ btnNext.addEventListener('click', () => {
 
 btnStart.addEventListener('click', () => {
     divMenu.style.display = "none";
-    divCategories.style.display = "block";
+    divCategories.style.display = "flex";
 })
 
 btnStartQuiz.addEventListener('click', () => {
