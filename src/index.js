@@ -20,7 +20,7 @@ const divQuiz = document.getElementById("div-quiz");
 const divRules = document.getElementById("div-rules");
 const divHighscores = document.getElementById("div-highscores");
 
-//deklaracja przycisków
+//deklaracje przycisków
 const btnPlay = document.getElementById("button-play");
 const btnNext = document.getElementById("button-next");
 const btnStart = document.getElementById("button-start");
@@ -28,6 +28,9 @@ const btnStartQuiz = document.getElementById("button-startquiz");
 const btnMainMenu = document.getElementById("button-mainmenu");
 const btnRules = document.getElementById("button-rules");
 const btnHighscores = document.getElementById("button-highscores");
+ 
+//deklaracje inne
+const playerOutput = document.getElementById("playerPlaceholder");
 
 btnPlay.addEventListener('click', () => {
     divPlay.style.display = "none";
@@ -38,6 +41,7 @@ btnNext.addEventListener('click', () => {
     const userNickname = document.getElementById("nickname").value;
     if (userNickname.length >= 3) {
         player.playerName = userNickname;
+        playerOutput.innerText = player.playerName;
         divStart.style.display = "none";
         divMenu.style.display = "flex";
     } else {
