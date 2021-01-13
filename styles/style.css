@@ -330,8 +330,8 @@ footer {
 /* Quiz */
 
 .quiz {
-    /* display: none; */
-    display: flex;
+    display: none;
+    /* display: flex; */
     align-items: center;
     justify-content: center;
     /* background-color: blue; */
@@ -372,56 +372,8 @@ footer {
 #quizImage {
     width: 100%;
 }   
-/* V ekran */
-.quiz {
-    display: none;
-    height: 100%;
-    width: 100%;
-}
 
-.quiz .input-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    height: 70vh;
-    width: 95vw;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    border: 2px solid yellow;
-    padding: 6px;
-}
-
-.quiz .input-wrapper img {
-    height: auto;
-    width: 60%;
-}
-
-.quiz .input-wrapper .starships {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 15%;
-    width: 100%;
-    background-color: #444;
-}
-
-.quiz .input-wrapper p {
-    color: yellow;
-    font-size: 18px;
-    line-height: 1.2;
-}
-
-.quiz .input-wrapper button {
-    width: 200px;
-    height: 30px;
-    background-color: var(--yelow);
-    border: none;
-    border-radius: 8px;
-}
+/* Tablica wyników */
 
 .highscores {
     display: none;

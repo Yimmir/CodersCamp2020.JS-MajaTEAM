@@ -49,7 +49,7 @@ btnStart.addEventListener('click', () => {
 
 btnStartQuiz.addEventListener('click', () => {
     divCategories.style.display = "none";
-    divQuiz.style.display = "block";
+    divQuiz.style.display = "flex";
 
 })
 
