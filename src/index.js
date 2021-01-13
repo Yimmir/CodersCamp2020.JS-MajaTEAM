@@ -14,10 +14,12 @@ const divStart = document.getElementById("div-start");
 const divPlay = document.getElementById("div-play");
 const divMenu = document.getElementById("div-menu");
 const divCategories = document.getElementById("div-categories");
+const divQuiz = document.getElementById("div-quiz");
 
 const btnPlay = document.getElementById("button-play");
 const btnNext = document.getElementById("button-next");
 const btnStart = document.getElementById("button-start");
+const btnStartQuiz = document.getElementById("button-startquiz");
 
 btnPlay.addEventListener('click', () => {
     divPlay.style.display = "none";
@@ -38,4 +40,9 @@ btnNext.addEventListener('click', () => {
 btnStart.addEventListener('click', () => {
     divMenu.style.display = "none";
     divCategories.style.display = "block";
+})
+
+btnStartQuiz.addEventListener('click', () => {
+    divCategories.style.display = "none";
+    divQuiz.style.display = "block"
 })

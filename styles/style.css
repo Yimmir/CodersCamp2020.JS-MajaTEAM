@@ -53,7 +53,7 @@ canvas {
 
 header {
     height: 18%;
-    background-color: aquamarine; /* bgColor tylko dla dev */
+    /* background-color: aquamarine; bgColor tylko dla dev */
 }
 
 header img {
@@ -94,7 +94,7 @@ footer {
     font-size: 1.5rem; /* trzeba będzie ogarnąć RWD czcionek (?) */
 }
 
-/* I ekran */
+/* ekran startowy */
 .play {
     display: block;
 }
@@ -131,7 +131,7 @@ footer {
     box-shadow: 0px 0px 15px 10px rgba(255,232,31,0.60);
 }
 
-/* II ekran */
+/* Nazwa użytkownika */
 .start {
     display: none;
 }
@@ -190,7 +190,7 @@ footer {
     text-shadow: 0px 0px 15px rgba(255,232,31,0.60);
 }
 
-/* III ekran  */
+/* Menu główne  */
 .menu {
     display: none;
 }
@@ -247,7 +247,7 @@ footer {
     transform: translateX(-50%);
 }
 
-/* IV ekran */
+/* Wybór trybu quizu */
 .categories {
     display: none;
 }
@@ -321,4 +321,51 @@ footer {
     letter-spacing: 5px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+/* Quiz */
+
+.quiz {
+    /* display: none; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: blue; */
+    height: 100%;
+    width: 100%;
+}
+
+.quizModule-wrapper {
+    height: 98%;
+    margin-bottom: 2%;
+    width: 87%;
+    border: 5px solid var(--yelow);
+    /* border-radius: 5px; */
+    box-shadow: 0px 0px 10px 3px rgba(255,232,31,0.50);
+    background-color: rgba(0, 0, 0, 0.55);
+    display: flex;
+    flex-direction: column;
+}
+
+#timer-wrapper {
+    background-color: violet;
+    height: 13%;
+    width: 90%;
+    margin: auto;
+}
+
+#quiz-wrapper {
+    background-color: wheat;
+    height: 84%;
+    margin: 1% 5% 2%;
+}
+
+#quizImage-wrapper {
+    height: auto;
+    border: 5px solid var(--yelow);
+}
+
+#quizImage {
+    width: 100%;
+    
 }
