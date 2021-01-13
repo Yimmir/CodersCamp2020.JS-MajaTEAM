@@ -62,3 +62,12 @@ btnMainMenu.addEventListener('click', () => {
     divHighscores.style.display = "none";
     divMenu.style.display = "block";
 })
+
+//Funkcja klik, może się przyda
+// const cbox = document.querySelectorAll(".answer");
+
+//  for (let i = 0; i < cbox.length; i++) {
+//      cbox[i].addEventListener("click", function() {
+//        console.log('Hello');
+//      });
+//  }

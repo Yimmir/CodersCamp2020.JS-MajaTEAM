@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    font-size: 2.5vh;
 }
 
 /* Deklaracja zmiennych */
@@ -53,8 +54,7 @@ canvas {
 
 header {
     height: 18%;
-    background-color: aquamarine;
-    /* bgColor tylko dla dev */
+
 }
 
 header img {
@@ -65,15 +65,13 @@ header img {
 
 main {
     height: 77%;
-    /* background-color: blueviolet;  */
-    /* bgColor tylko dla dev */
+
 }
 
 footer {
     height: 5%;
     position: relative;
-    background-color: coral;
-    /* bgColor tylko dla dev */
+
 }
 
 .footer-wrapper {
@@ -331,7 +329,6 @@ footer {
 
 .quiz {
     display: none;
-    /* display: flex; */
     align-items: center;
     justify-content: center;
     /* background-color: blue; */
@@ -359,19 +356,66 @@ footer {
 }
 
 #quiz-wrapper {
-    background-color: wheat;
     height: 84%;
     margin: 1% 5% 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #quizImage-wrapper {
-    height: auto;
-    border: 5px solid var(--yelow);
+    height: 56%;
 }
 
 #quizImage {
-    width: 100%;
+    height: 100%;
+    border: 5px solid var(--yelow);
 }   
+
+#quizQuestions-wrapper{
+    width: 100%;
+    margin-top: 2%;
+    height: 42%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#questionText {
+    font-family: swTheme;
+    font-size: 1em;
+    color: var(--yelow);
+}
+
+#quizAnswers-wrapper {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 3%;
+    align-items: center;
+}
+
+.answer {
+    background-color: var(--yelow);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-family: swText;
+    font-weight: bold;
+    font-size: 1.5em;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.answer:hover{
+    background-color: white;
+    box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.5);
+}
+
+
 
 /* Tablica wyników */
 
