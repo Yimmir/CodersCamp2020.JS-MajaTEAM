@@ -11,19 +11,22 @@ import {
 
 // window.onload = () => App({options: {swApiBaseUrl: SW_API_BASE_URL, quizMaxTime: QUIZ_MAX_TIME}})
 
-
+//deklaracje divów
 const divStart = document.getElementById("div-start");
 const divPlay = document.getElementById("div-play");
 const divMenu = document.getElementById("div-menu");
 const divCategories = document.getElementById("div-categories");
 const divQuiz = document.getElementById("div-quiz");
+const divRules = document.getElementById("div-rules");
 const divHighscores = document.getElementById("div-highscores");
 
+//deklaracja przycisków
 const btnPlay = document.getElementById("button-play");
 const btnNext = document.getElementById("button-next");
 const btnStart = document.getElementById("button-start");
 const btnStartQuiz = document.getElementById("button-startquiz");
 const btnMainMenu = document.getElementById("button-mainmenu");
+const btnRules = document.getElementById("button-rules");
 const btnHighscores = document.getElementById("button-highscores");
 
 btnPlay.addEventListener('click', () => {
@@ -53,14 +56,19 @@ btnStartQuiz.addEventListener('click', () => {
 
 })
 
+btnRules.addEventListener('click', () => {
+    divMenu.style.display = "none";
+    divRules.style.display = "flex";
+})
+
 btnHighscores.addEventListener('click', () => {
     divMenu.style.display = "none";
-    divHighscores.style.display = "block";
+    divHighscores.style.display = "flex";
 })
 
 btnMainMenu.addEventListener('click', () => {
     divHighscores.style.display = "none";
-    divMenu.style.display = "block";
+    divMenu.style.display = "flex";
 })
 
 //Funkcja klik, może się przyda
