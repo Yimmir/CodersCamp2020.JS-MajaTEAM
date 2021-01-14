@@ -1,5 +1,4 @@
-function timer() {
-
+const timer = () => {
     const howManyMinutes = 2;
     let time = howManyMinutes * 60;
     let position = 0;
