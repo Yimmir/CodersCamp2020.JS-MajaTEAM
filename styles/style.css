@@ -9,6 +9,8 @@
 /* Deklaracja zmiennych */
 :root {
     --yelow: #ffe81f;
+    --enemyPosition: 10%;
+    --playerPosition: 70%;
 }
 
 /* Import i deklaracja fontów */
@@ -316,13 +318,105 @@ h2 p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 
 #timer-wrapper {
-    background-color: violet;
     height: 13%;
     width: 90%;
     margin: auto;
+    display: grid;
+    grid:20% 80% / 12.5% 25% 25% 25% 12.5%;
+    justify-items: center;
+    position: relative;
+}
+
+.text {
+    font-family: swText;
+    font-weight: lighter;
+    font-size: 0.45em;
+    letter-spacing: 1px;
+    color: var(--yelow);
+    text-align: center;
+}
+
+.line {
+    width: 2px;
+    background-color: var(--yelow);
+    opacity: 0.5;
+}
+
+#startL, #finishL {
+    width: 3px;
+    opacity: 0.8
+}
+
+#start {
+    transform: translate(-40%);
+}
+
+#finish {
+    transform: translate(40%);
+}
+
+#start, #startL {
+    justify-self: start;
+}
+
+#finish, #finishL {
+    justify-self: end;
+}
+
+#deathStar {
+    position: absolute;
+    height: 75%;
+    z-index: 50;
+    right: 0;
+    bottom: 0;
+    transform: translate(70%);
+}
+
+.progress {
+    position: absolute;
+    left: 3px;
+    height: 10%;
+}
+
+#progressE {
+    top: 38%;
+    transform: translate(0, -50%);
+    width: var(--enemyPosition);
+    background-color: #f02929;
+    box-shadow: 0px 0px 10px 3px #f0292980;
+    z-index: 8;
+}
+
+#progressP {
+    top: 80%;
+    transform: translate(0, -50%);
+    width: var(--playerPosition);
+    background-color: #328bf6;
+    box-shadow: 0px 0px 10px 3px #328bf680;
+    z-index: 8;
+}
+
+.ship {
+    position: absolute;
+    height: 40%;
+}
+
+#enemyS {
+    z-index: 9;
+    top: 38%;
+    left: var(--enemyPosition);
+    transform: translate(-50%, -50%);
+}
+
+#playerS {
+    z-index: 10;
+    top: 80%;
+    transform: translate(0, -50%);
+    left: var(--playerPosition);
 }
 
 #quiz-wrapper {
