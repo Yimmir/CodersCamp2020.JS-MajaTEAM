@@ -100,14 +100,6 @@ footer {
     display: block;
 }
 
-/* .play img {
-    position: absolute;
-    width: 240px;
-    height: auto;
-    left: 50%;
-    transform: translateX(-50%);
-} */
-
 .play .button-play {
     position: absolute;
     top: 50vh;
@@ -178,7 +170,7 @@ footer {
     box-shadow: 0px 0px 15px 5px rgba(255, 232, 31, 0.75);
 }
 
-.start .input-wrapper button {
+.button-next {
     background-color: transparent;
     color: var(--yelow);
     border: none;
@@ -188,7 +180,7 @@ footer {
     text-shadow: 0px 0px 5px rgba(255, 232, 31, 0.75);
 }
 
-.input-wrapper button:hover {
+.button-next:hover {
     text-shadow: 0px 0px 15px rgba(255, 232, 31, 0.60);
 }
 
@@ -243,71 +235,64 @@ h2 p {
 }
 
 /* Wybór trybu quizu */
-.categories {
-    display: none;
+
+#modeTitle {
+    font-family: swTheme;
+    color: var(--yelow);
+    font-weight: normal;
+    letter-spacing: 2px;
+    font-size: 1.2em;
+    margin: 3px 0;
+    height: 8%;
 }
 
-.categories .input-wrapper {
+.mode-wrapper {
+    height: 80%;
+    width:87%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    position: absolute;
-    height: 62vh;
-    width: 95vw;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+}
+
+.mode {
+    background-color: var(--yelow);
+    text-align: center;
+    border-radius: 5px;
+    margin: 2% 0;
+    height: 31%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mode p {
+    font-family: swTheme;
+    font-weight: normal;
+    padding-bottom: 0;
+    font-size: 1.5em;
+}
+
+.description {
+    background-color: black;
+    margin: 0 10px 10px;
+    height: calc(100% - 10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.description p {
+    width: 90%;
+    font-family: swText;
     color: white;
-    border: 2px solid yellow;
-    padding: 6px;
-}
-
-.categories .input-wrapper>p {
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.categories .input-wrapper>div {
-    padding: 5px;
-    background-color: yellow;
-    color: black;
-    border-radius: 8px;
-}
-
-.categories .input-wrapper>div>p {
-    text-transform: uppercase;
     text-align: center;
     font-weight: bold;
+    font-size: 0.88em;
 }
 
-.categories .input-wrapper>div>div {
-    background-color: black;
-    color: white;
-    text-align: justify;
-    font-size: 14px;
-    padding: 5px;
-}
-
-.categories .button-startquiz {
-    background-color: transparent;
-    color: yellow;
-    font-size: 30px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border: none;
-}
-
-.categories a {
-    position: absolute;
-    bottom: 10px;
-    font-size: 28px;
-    color: yellow;
-    text-decoration: none;
-    letter-spacing: 5px;
-    left: 50%;
-    transform: translateX(-50%);
+#button-startquiz {
+    font-size: 2em;
 }
 
 /* Quiz */
