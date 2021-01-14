@@ -29,6 +29,9 @@ const btnMainMenu = document.getElementById("button-mainmenu");
 const btnRules = document.getElementById("button-rules");
 const btnHighscores = document.getElementById("button-highscores");
  
+//deklaracje wyboru trybu
+const modes = document.querySelectorAll(".mode")
+
 //deklaracje inne
 const playerOutput = document.getElementById("playerPlaceholder");
 
@@ -37,6 +40,7 @@ btnPlay.addEventListener('click', () => {
     divStart.style.display = "block";
 })
 
+//funkcje zmiany ekranu
 btnNext.addEventListener('click', () => {
     const userNickname = document.getElementById("nickname").value;
     if (userNickname.length >= 3) {
@@ -74,6 +78,17 @@ btnMainMenu.addEventListener('click', () => {
     divHighscores.style.display = "none";
     divMenu.style.display = "flex";
 })
+
+//jaki tryb został wybrany
+let modeSelected
+for (let i = 0; i < modes.length; i++) {
+    modes[i].addEventListener('click', () => {
+        for (let j = 0; j < modes.length; j++) {
+            modes[j].style.backgroundColor = '#ffe81f';
+        }
+        modes[i].style.backgroundColor = 'white';
+    })
+}
 
 //Funkcja klik, może się przyda
 // const cbox = document.querySelectorAll(".answer");
