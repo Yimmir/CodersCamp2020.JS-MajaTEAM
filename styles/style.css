@@ -6,6 +6,10 @@
     font-size: 2.5vh;
 }
 
+*:focus{
+    outline: none;
+}
+
 /* Deklaracja zmiennych */
 :root {
     --yelow: #ffe81f;
@@ -56,6 +60,7 @@ canvas {
 
 header {
     height: 18%;
+    position: relative;
 
 }
 
@@ -63,6 +68,28 @@ header img {
     height: 100%;
     display: block;
     margin: auto;
+}
+
+.home {
+    width: auto;
+    height: 20%;
+    position: absolute;
+    bottom: 20%;
+    right: 73%;
+    display: flex;
+    align-items: center;
+}
+
+.home p {
+    font-family: swTheme;
+    color: var(--yelow);
+    margin-bottom: 6%;
+    font-weight: lighter;
+    font-size: 0.8em;
+}
+
+.home img {
+    height: 70%;
 }
 
 main {
@@ -189,10 +216,9 @@ footer {
 /* Menu główne  */
 
 .menu-wrapper {
-    /* height: 98%; */
     align-self: flex-start;
-    margin-bottom: 2%;
     width: 87%;
+    max-width: 1000px;
     border: 5px solid var(--yelow);
     box-shadow: 0px 0px 10px 3px rgba(255,232,31,0.50);
     background-color: rgba(0, 0, 0, 0.65);
@@ -210,7 +236,7 @@ footer {
     text-align: justify;
     text-align-last: center;
     width: 90%;
-    margin: 5% 0 10%;
+    margin: 10px 0 20px;
 }
 
 h2 p {
@@ -221,6 +247,7 @@ h2 p {
 
 .button {
     background-color: var(--yelow);
+    border: none;
     width: 90%;
     height: auto;
     text-align: center;
@@ -301,7 +328,7 @@ h2 p {
 
 .boxLarge {
     display: none;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     height: 100%;
     width: 100%;
@@ -311,6 +338,7 @@ h2 p {
     height: 98%;
     margin-bottom: 2%;
     width: 87%;
+    max-width: 1000px;
     border: 5px solid var(--yelow);
     /* border-radius: 5px; */
     box-shadow: 0px 0px 10px 3px rgba(255,232,31,0.50);
@@ -324,7 +352,7 @@ h2 p {
 #timer-wrapper {
     height: 13%;
     width: 90%;
-    margin: auto;
+    margin: 2% auto auto;
     display: grid;
     grid:20% 80% / 12.5% 25% 25% 25% 12.5%;
     justify-items: center;
@@ -421,10 +449,12 @@ h2 p {
 
 #quiz-wrapper {
     height: 84%;
+    width: 90%;
     margin: 1% 5% 2%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 1em;
 }
 
 #quizImage-wrapper {
@@ -484,6 +514,7 @@ h2 p {
 #rules-wrapper {
     height: 100%;
     width: 98%;
+    padding: 0 5%;
     display: grid;
     grid-template-areas: 
     "header"
@@ -508,6 +539,7 @@ h2 p {
 }
 
 .headers {
+    width: 100%;
     font-family: swTheme, sans-serif;
     font-weight: normal;
     letter-spacing: 2px;
@@ -520,7 +552,6 @@ h2 p {
 }
 
 .rulesContent {
-    width: 90%;
     justify-self: center;
 }
 
@@ -554,6 +585,9 @@ h2 p {
 #rules3 {
     grid-area: part3;
     padding-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Tablica wyników */
@@ -623,4 +657,73 @@ h2 p {
     font-size: 30px;
     line-height: 30px;
     text-transform: uppercase;
+}
+
+/* RWD */
+
+/* Dla trybu landscape */
+
+@media (orientation: landscape) {
+    .home {
+        height: 43%;
+    }
+    .home p {
+        font-size: 1.5em;
+    }
+    #div-categories .module-wrapper {
+        height: 80%;
+    }
+    #div-categories .mode-wrapper {
+        flex-direction: row;
+        width: 95%;
+    }
+    .mode {
+        height: 65%;
+        font-size: 1.25em;
+        margin: 2% 1%;
+    }
+    .description {
+        font-size: 1em;
+    }
+    #quiz-wrapper {
+        flex-direction: row;
+    }
+    #quizQuestions-wrapper{
+        align-self: center;
+        height: 70%;
+        margin-left: 2%;
+        margin-top: 0;
+    }
+    #quizImage-wrapper {
+        height: 70%;
+    }
+    #timer-wrapper {
+        height: 25%;
+    }
+    #questionText {
+        font-size: 1.4em;
+    }
+    .answer span{
+        font-size: 1em;
+    }
+    #rules-wrapper {
+        grid-template-areas: 
+        "header header"
+        "intro intro"
+        "part1 part3"
+        "part2 part3";
+        grid-template-rows: 10% auto;
+        font-size: 1.2em;
+        padding: 0 1% 1%;
+        gap: 2%;
+    }
+    #rules-wrapper p {
+        font-size: 0.9em;
+    }
+    #rules3 {
+        padding: 0;
+    }
+    #rules3 img {
+        width: 80%;
+    }
 }
