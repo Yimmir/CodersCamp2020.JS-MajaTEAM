@@ -303,6 +303,25 @@ footer {
     padding: 5px;
 }
 
+.categories .input-wrapper .div-level {
+    background-color: black;
+}
+
+select {
+    background-color: black;
+    color: white;
+    padding: .2em;
+    margin-left: .5em;
+    border: yellow solid .4em;
+    -moz-appearance:none;
+}
+
+select > option {
+    -moz-appearance:none;
+    background-color: black;
+    color: white;
+}
+
 .categories .button-startquiz {
     background-color: transparent;
     color: yellow;
