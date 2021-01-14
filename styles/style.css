@@ -9,8 +9,8 @@
 /* Deklaracja zmiennych */
 :root {
     --yelow: #ffe81f;
-    --enemyPosition: 10%;
-    --playerPosition: 70%;
+    --enemyPosition: 0%;
+    --playerPosition: 0%;
 }
 
 /* Import i deklaracja fontów */

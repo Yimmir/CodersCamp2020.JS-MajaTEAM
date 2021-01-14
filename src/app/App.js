@@ -1,4 +1,5 @@
 import { player } from "./player.js";
+import { timer } from "./timer.js";
 
 export const App = ({options}) => {
 
@@ -52,7 +53,7 @@ export const App = ({options}) => {
     btnStartQuiz.addEventListener('click', () => {
         divCategories.style.display = "none";
         divQuiz.style.display = "flex";
-
+        timer();
     })
 
     btnRules.addEventListener('click', () => {
