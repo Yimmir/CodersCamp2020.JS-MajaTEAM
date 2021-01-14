@@ -5,6 +5,10 @@
     font-family: sans-serif;
 }
 
+li {
+    list-style: none;
+}
+
 /* Deklaracja zmiennych */
 :root {
     --yelow: #ffe81f;
@@ -321,4 +325,59 @@ footer {
     letter-spacing: 5px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+/*V ekran high scores*/
+
+.scores {
+    display: none;
+}
+.scores .scores-wrapper {
+    color: #ffe81f;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    height: 60vh;
+    width: 80vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.scores a {
+    position: absolute;
+    bottom: 10px;
+    font-size: 28px;
+    color: yellow;
+    text-decoration: none;
+    letter-spacing: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.scores .scores p {
+    padding: 10px 0;
+    font-size: 18px;
+    text-align: justify;
+    font-weight: bold;
+    color: yellow;
+}
+.scores .scores-wrapper button {
+    width: 100%;
+    height: 46px;
+    background-color: yellow;
+    border: none;
+    border-radius: 10px;
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.scores .scores-wrapper ul li {
+    color: black;
+    background: #ffe81f;
+    margin: 10px 20px ;
+    padding: 10px 40px;
+    border-radius: 5px;
 }
