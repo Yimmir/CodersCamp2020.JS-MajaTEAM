@@ -19,6 +19,7 @@ export const App = ({options}) => {
     const btnMainMenu = document.getElementById("button-mainmenu");
     const btnRules = document.getElementById("button-rules");
     const btnHighscores = document.getElementById("button-highscores");
+    const btnHome = document.getElementById("home");
     
     //deklaracje wyboru trybu
     const modes = document.querySelectorAll(".mode")
@@ -47,27 +48,38 @@ export const App = ({options}) => {
     btnStart.addEventListener('click', () => {
         divMenu.style.display = "none";
         divCategories.style.display = "flex";
+        btnHome.style.display = "flex";
     })
 
     btnStartQuiz.addEventListener('click', () => {
         divCategories.style.display = "none";
         divQuiz.style.display = "flex";
-
+        btnHome.style.display = "flex";
     })
 
     btnRules.addEventListener('click', () => {
         divMenu.style.display = "none";
         divRules.style.display = "flex";
+        btnHome.style.display = "flex";
     })
 
     btnHighscores.addEventListener('click', () => {
         divMenu.style.display = "none";
         divHighscores.style.display = "flex";
+        btnHome.style.display = "flex";
     })
 
     btnMainMenu.addEventListener('click', () => {
         divHighscores.style.display = "none";
         divMenu.style.display = "flex";
+    })
+
+    //Powrót do menu
+    btnHome.addEventListener('click', () =>{
+        let activeDiv = document.querySelector('.boxLarge[style*="display: flex;"]');
+        activeDiv.style.display = "none";
+        divMenu.style.display = "flex";
+        btnHome.style.display = "none";
     })
 
     //jaki tryb został wybrany
