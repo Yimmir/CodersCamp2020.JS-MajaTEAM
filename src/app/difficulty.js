@@ -1,23 +1,23 @@
 export function selectDifficulty(){
     
     let level = document.querySelector("select");
-    let playTime = timeInMilis();
-    function timeInMilis() {
+    let playTime = timeInSeconds();
+    function timeInSeconds() {
         switch (level.value) {
             case '1':
-                return playTime = 60000;
+                return playTime = 60;
                 break;
             case '2':
-                return playTime = 120000;
+                return playTime = 120;
                 break;
             case '3':
-                return playTime = 180000;
+                return playTime = 180;
                 break;
         }
     }
 
     level.addEventListener('change', () => {
-        timeInMilis();
+        timeInSeconds();
     });
 
     return playTime;
