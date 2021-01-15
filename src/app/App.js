@@ -1,5 +1,8 @@
 import { player } from "./player.js";
 import {getLocalScores} from  "./localScoreboard"
+import {getGlobalScores} from './globalScoreboard';
+
+
 
 export const App = ({options}) => {
 
@@ -41,16 +44,23 @@ btnStart.addEventListener('click', () => {
 btnHighScores.addEventListener('click', () => {
     divMenu.style.display = "none";
     divScores.style.display = "block";
-    let  scores = getLocalScores();
-    let lp =0;
-    scores.forEach((value) => {
-         console.log(value.name);
+    let  localScores = getLocalScores();
+    let localLp = 1;
+    let globalLp = 1;
+    localScores.forEach((value) => {
          let li = document.createElement("li");
-         li.appendChild(document.createTextNode(`${lp}. ${value.name} ${value.score}`));
+         li.appendChild(document.createTextNode(`${localLp} ${value.name} ${value.score}`));
         divScoresLocalList.appendChild(li);
-         lp++;
+        localLp++;
      });
-    console.log(scores);
+    getGlobalScores().then((data) => {
+        data.forEach((value) => {
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode(`${globalLp} ${value.name} ${value.score}`));
+            divScoresGlobalList.appendChild(li);
+            globalLp++;
+        });
+    })
     })
 
     btnHighScoresBack.addEventListener('click', () => {

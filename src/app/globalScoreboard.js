@@ -28,7 +28,12 @@ const saveScoreGlobally = async function(playerName, playerScore) {
 const fetchData = async function() {
   await fetch(url)
     .then(response => response.json())
-    .then(data => globalScores = data)
+    .then((data) => {
+      globalScores = [];
+      for (let obj in data) {
+        globalScores.push(data[obj])
+      }
+    })
     .catch((error) => {
       console.error('Error: ', error)
     });

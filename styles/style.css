@@ -47,8 +47,8 @@ body {
 }
 
 canvas {
-    width: 100%; 
-    height: 100%; 
+    width: 100%;
+    height: 100%;
     padding: 0;
     margin: 0;
     position: absolute;
@@ -125,14 +125,14 @@ footer {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: bold;
-    font-family: swTheme, sans-serif; 
+    font-family: swTheme, sans-serif;
     padding-bottom: 7px;
-    box-shadow: 0px 0px 20px 0px rgba(255,232,31,0.75);
-    
+    box-shadow: 0px 0px 20px 0px rgba(255, 232, 31, 0.75);
+
 }
 
 .button-play:hover {
-    box-shadow: 0px 0px 15px 10px rgba(255,232,31,0.60);
+    box-shadow: 0px 0px 15px 10px rgba(255, 232, 31, 0.60);
 }
 
 /* II ekran */
@@ -168,7 +168,7 @@ footer {
     font-size: 30px;
     padding: 10px;
     border: 5px solid var(--yelow);
-    box-shadow: 0px 0px 10px 0px rgba(255,232,31,0.75);
+    box-shadow: 0px 0px 10px 0px rgba(255, 232, 31, 0.75);
     background-color: rgba(0, 0, 0, 0.75);
     color: white;
     font-family: swText, sans-serif;
@@ -177,7 +177,7 @@ footer {
 }
 
 .input-wrapper input:focus {
-    box-shadow: 0px 0px 15px 5px rgba(255,232,31,0.75);
+    box-shadow: 0px 0px 15px 5px rgba(255, 232, 31, 0.75);
 }
 
 .start .input-wrapper button {
@@ -187,11 +187,11 @@ footer {
     font-size: 50px;
     letter-spacing: 1px;
     font-family: swTheme, sans-serif;
-    text-shadow: 0px 0px 5px rgba(255,232,31,0.75);
+    text-shadow: 0px 0px 5px rgba(255, 232, 31, 0.75);
 }
 
 .input-wrapper button:hover {
-    text-shadow: 0px 0px 15px rgba(255,232,31,0.60);
+    text-shadow: 0px 0px 15px rgba(255, 232, 31, 0.60);
 }
 
 /* III ekran  */
@@ -280,26 +280,26 @@ footer {
     padding: 6px;
 }
 
-.categories .input-wrapper>p {
+.categories .input-wrapper > p {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 16px;
 }
 
-.categories .input-wrapper>div {
+.categories .input-wrapper > div {
     padding: 5px;
     background-color: yellow;
     color: black;
     border-radius: 8px;
 }
 
-.categories .input-wrapper>div>p {
+.categories .input-wrapper > div > p {
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;
 }
 
-.categories .input-wrapper>div>div {
+.categories .input-wrapper > div > div {
     background-color: black;
     color: white;
     text-align: justify;
@@ -332,6 +332,7 @@ footer {
 .scores {
     display: none;
 }
+
 .scores .scores-wrapper {
     color: #ffe81f;
     display: flex;
@@ -345,6 +346,7 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 .scores a {
     position: absolute;
     bottom: 10px;
@@ -355,13 +357,15 @@ footer {
     left: 50%;
     transform: translateX(-50%);
 }
-.scores .scores p {
+
+.scores p {
     padding: 10px 0;
     font-size: 18px;
     text-align: justify;
     font-weight: bold;
     color: yellow;
 }
+
 .scores .scores-wrapper button {
     width: 100%;
     height: 46px;
@@ -374,10 +378,55 @@ footer {
     text-transform: uppercase;
 }
 
-.scores .scores-wrapper ul li {
+.lists-wrapper {
+    width: 40%;
+    height: inherit;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: space-between;
+    justify-items: stretch;
+    grid-gap: 1rem;
+}
+
+.lists-wrapper h2 {
+    text-align: center;
+}
+
+.lists-wrapper .scoresListGlobal {
+    max-height: 80%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-right: 1.5rem;
+}
+
+.lists-wrapper ul li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     color: black;
+    font-weight: bolder;
     background: #ffe81f;
-    margin: 10px 20px ;
-    padding: 10px 40px;
+    margin: 1rem;
+    padding: 0.5rem 0.5rem;
     border-radius: 5px;
+}
+
+.lists-wrapper .scoresListGlobal::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+/* Track */
+.lists-wrapper .scoresListGlobal::-webkit-scrollbar-track {
+    background: inherit;
+}
+
+/* Handle */
+.lists-wrapper .scoresListGlobal::-webkit-scrollbar-thumb {
+    background: darkslategray;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+.lists-wrapper .scoresListGlobal::-webkit-scrollbar-thumb:hover {
+    background: white;
 }
