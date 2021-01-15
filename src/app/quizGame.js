@@ -16,8 +16,7 @@ let classToApply;
 export const startQuiz = () => {
   player.correctAnswersInfo = 0;
   availableQuestionsIDs = [...mode.availableIDs];
-  if (player.correctAnswersInfo<=2) getQuestion();
-  else console.log("the ennd")
+  getQuestion();
 }
 
 const getQuestion = async() => {
