@@ -11,10 +11,15 @@ const timer = (score) => {
         ships.style.setProperty('--playerPosition', `${score * 5}%`);
         ships.style.setProperty('--enemyPosition', `${position}%`);
 
-        position += step;
-        time--;
+        if (score < 20 || time > 0) {
+            position += step;
+            time--;
+        }
+        else {
+            return time;
+        }
+
         position = position > 100 ? 100 : position;
-        time = time < 0 ? 0 : time;
     }
 }
 
