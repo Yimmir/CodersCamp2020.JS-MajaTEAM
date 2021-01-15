@@ -1,5 +1,4 @@
 import { player } from "./player.js";
-import { selectDifficulty } from "./difficulty.js";
 
 export const App = ({options}) => {
 

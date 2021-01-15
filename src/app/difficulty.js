@@ -1,8 +1,7 @@
-export function selectDifficulty(){
+ const level = document.querySelector("select");
+ export let playTime = timeInSeconds();
     
-    let level = document.querySelector("select");
-    let playTime = timeInSeconds();
-    function timeInSeconds() {
+ function timeInSeconds() {
         switch (level.value) {
             case '1':
                 return playTime = 60;
@@ -16,9 +15,6 @@ export function selectDifficulty(){
         }
     }
 
-    level.addEventListener('change', () => {
+level.addEventListener('change', () => {
         timeInSeconds();
-    });
-
-    return playTime;
-}
+});

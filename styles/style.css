@@ -352,12 +352,21 @@ h2 p {
     font-size: 0.88em;
 }
 
+label {
+    font-family: swTheme;
+    color: var(--yelow);
+    font-weight: normal;
+    letter-spacing: 2px;
+    font-size: 1.2em;
+}
+
 select {
     background-color: black;
     color: white;
     padding: .2em;
     margin-left: .5em;
-    border: yellow solid .4em;
+    border: yellow solid .3em;
+    box-shadow: 0px 0px 10px 3px rgba(255,232,31,0.50);
     -moz-appearance:none;
 }
 
