@@ -1,6 +1,7 @@
 import {generateQuestion} from './questionGenerator';
 import {getModeProperties} from './gameMode';
 import {getRandomIntInclusive} from './random';
+import {player} from './player'
 
 const mode = getModeProperties('starships');
 const questionElement = document.getElementById('quizImage');
@@ -13,10 +14,11 @@ let possiblityToAnswer = false;  //used to prevent answering mulitple times the 
 let classToApply;
 
 export const startQuiz = () => {
-  totalScore = 0;
+  player.correctAnswersInfo = 0;
   questionCounter = 0;
   availableQuestionsIDs = [...mode.availableIDs];
-  getQuestion();
+  if (player.correctAnswersInfo<=2) getQuestion();
+  else console.log("the ennd")
 }
 
 const getQuestion = async() => {
@@ -47,13 +49,13 @@ const checkAnswer = (e) => {
   possiblityToAnswer = false;
   const selectedAnswer = e.target;
   if (selectedAnswer.dataset.type === "correct") {
-    totalScore++;
+    player.correctAnswersInfo++;
     classToApply = "correct";
   }
   else {
     classToApply = "incorrect";
   }
-  // console.log("Total score: " + totalScore);
+  console.log("Total score: " + player.correctAnswersInfo);
   selectedAnswer.classList.add(classToApply);
   setTimeout(() => {
     getQuestion();
