@@ -13,6 +13,7 @@ const divCategories = document.getElementById("div-categories");
 const divScores = document.getElementById("div-highScores");
 const divScoresLocalList = document.querySelector(".scoresListLocal");
 const divScoresGlobalList = document.querySelector(".scoresListGlobal");
+const divLoader = document.querySelector(".loader");
 
 const btnPlay = document.getElementById("button-play");
 const btnNext = document.getElementById("button-next");
@@ -44,22 +45,24 @@ btnStart.addEventListener('click', () => {
 btnHighScores.addEventListener('click', () => {
     divMenu.style.display = "none";
     divScores.style.display = "block";
-    let  localScores = getLocalScores();
+    let localScores = getLocalScores();
     let localLp = 1;
     let globalLp = 1;
     localScores.forEach((value) => {
          let li = document.createElement("li");
-         li.appendChild(document.createTextNode(`${localLp} ${value.name} ${value.score}`));
+         li.appendChild(document.createTextNode(`Num:  ${localLp} Name:  ${value.name} Score:  ${value.score}`));
         divScoresLocalList.appendChild(li);
         localLp++;
      });
+    divLoader.style.display = "block";
     getGlobalScores().then((data) => {
         data.forEach((value) => {
             let li = document.createElement("li");
-            li.appendChild(document.createTextNode(`${globalLp} ${value.name} ${value.score}`));
+            li.appendChild(document.createTextNode(`Num: ${globalLp}  Name: ${value.name} Score: ${value.score}`));
             divScoresGlobalList.appendChild(li);
             globalLp++;
         });
+        divLoader.style.display = "none";
     })
     })
 

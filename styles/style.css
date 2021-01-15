@@ -366,6 +366,7 @@ footer {
     color: yellow;
 }
 
+
 .scores .scores-wrapper button {
     width: 100%;
     height: 46px;
@@ -379,7 +380,7 @@ footer {
 }
 
 .lists-wrapper {
-    width: 40%;
+    width: 70%;
     height: inherit;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -402,14 +403,33 @@ footer {
 .lists-wrapper ul li {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     color: black;
     font-weight: bolder;
+    text-align: center;
     background: #ffe81f;
-    margin: 1rem;
+    margin:  1rem auto;
     padding: 0.5rem 0.5rem;
     border-radius: 5px;
 }
+
+.lists-wrapper .loader {
+    display: none;
+    border: 16px solid black;
+    border-top: 16px solid yellow;
+    border-bottom: 16px solid yellow;
+    border-radius: 50%;
+    margin:  2rem auto;
+    width: 120px;
+    height: 120px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 
 .lists-wrapper .scoresListGlobal::-webkit-scrollbar {
     width: 0.5rem;
