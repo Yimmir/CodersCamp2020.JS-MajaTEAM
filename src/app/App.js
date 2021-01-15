@@ -53,7 +53,8 @@ export const App = ({options}) => {
     btnStartQuiz.addEventListener('click', () => {
         divCategories.style.display = "none";
         divQuiz.style.display = "flex";
-        timer();
+        timer(player.scoreInfo);
+        // timer(player.correctAnswer);
     })
 
     btnRules.addEventListener('click', () => {
