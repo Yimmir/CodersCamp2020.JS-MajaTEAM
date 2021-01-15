@@ -3,7 +3,7 @@ import {getModeProperties} from './gameMode';
 import {getRandomIntInclusive} from './random';
 
 const mode = getModeProperties('starships');
-const questionElement = document.getElementsByClassName('question-image');
+const questionElement = document.getElementById('quizImage');
 const answerElements = document.getElementsByClassName('answer');
 let totalScore = 0;
 let currentQuestionID = 0;
@@ -19,7 +19,7 @@ export const startQuiz = () => {
 }
 
 const getQuestion = async() => {
-  // if(availableQuestionsIDs.length === 0) availableQuestionsIDs = [...mode.availableIDs];  //reload all questions when over
+  if(availableQuestionsIDs.length === 0) availableQuestionsIDs = [...mode.availableIDs];  //reload all questions when over
   const questionIndex = getRandomIntInclusive(0, availableQuestionsIDs.length-1);
   ++questionCounter;
   // console.log("Question nr:" + questionCounter);
@@ -31,7 +31,7 @@ const getQuestion = async() => {
 const displayQuestion = async(id) => {
   const question  = await generateQuestion(mode, id);
   // console.log(question.answers);
-  questionElement[0].style.backgroundImage = `url("data:image/png;base64,${question.questionImage}")`;
+  questionElement.src = `data:image/png;base64,${question.questionImage}`;
   Array.from(answerElements).forEach((answer, index) => {
     answer.innerText = question.answers[index].content;
     if(question.answers[index].isCorrect) answer.dataset.type = "correct";
