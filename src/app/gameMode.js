@@ -7,9 +7,10 @@ const VEHICLES_IDS = [4, 6, 7, 8, 14, 16, 18, 20, 24, 25, 26, 30, 33, 34, 35, 36
 const imageBaseURL = 'static/assets/img/modes';
 const apiBaseURL = 'https://swapi.dev/api';
 
+const questionTextElement = document.getElementById("questionText");
 
 export const getModeProperties = (selectedMode) => {
-  let modeName, availableIDs, apiURL, imageURL, ;
+  let modeName, availableIDs, apiURL, imageURL, questionText;
   switch (selectedMode) {
     case 0:
       modeName = "people";
@@ -29,7 +30,8 @@ export const getModeProperties = (selectedMode) => {
     default:
       console.log("Wrong mode")
   }
+  questionTextElement.innerText = questionText;
   apiURL = loadDataFromAPI(apiBaseURL, modeName);
   imageURL = loadImage(imageBaseURL, modeName);
-  return {availableIDs, apiURL, imageURL, questionText};
+  return {availableIDs, apiURL, imageURL};
 }
