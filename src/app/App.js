@@ -76,6 +76,7 @@ export const App = ({options}) => {
         modes[i].addEventListener('click', () => {
             for (let j = 0; j < modes.length; j++) {
                 modes[j].classList.remove('modeEnabled');
+                modes[j].classList.add('modeDisabled');
             }
             modes[i].classList.remove('modeDisabled');
             modes[i].classList.add('modeEnabled');
