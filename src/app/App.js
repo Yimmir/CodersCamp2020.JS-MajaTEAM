@@ -1,4 +1,6 @@
 import { player } from "./player.js";
+import {getModeProperties} from './gameMode';
+import { startQuiz } from "./quizGame.js";
 
 export const App = ({options}) => {
 
@@ -52,7 +54,7 @@ export const App = ({options}) => {
     btnStartQuiz.addEventListener('click', () => {
         divCategories.style.display = "none";
         divQuiz.style.display = "flex";
-
+        startQuiz(modeSelected);
 
     })
 
@@ -72,9 +74,10 @@ export const App = ({options}) => {
     })
 
     //jaki tryb został wybrany
-    let modeSelected
+    let modeSelected;
     for (let i = 0; i < modes.length; i++) {
-        modes[i].addEventListener('click', () => {
+        modes[i].addEventListener('click', (e) => {
+            modeSelected = getModeProperties(i);
             for (let j = 0; j < modes.length; j++) {
                 modes[j].classList.remove('modeEnabled');
                 modes[j].classList.add('modeDisabled');
