@@ -3,6 +3,8 @@ import {getModeProperties} from './gameMode';
 import {getRandomIntInclusive} from './random';
 import {player} from './player'
 
+const MAX_POINTS = 20;
+
 const mode = getModeProperties('starships');
 const questionElement = document.getElementById('quizImage');
 const answerElements = document.getElementsByClassName('answer');
@@ -55,10 +57,11 @@ const checkAnswer = (e) => {
   else {
     classToApply = "incorrect";
   }
-  console.log("Total score: " + player.correctAnswersInfo);
+  // console.log("Total score: " + player.correctAnswersInfo);
   selectedAnswer.classList.add(classToApply);
   setTimeout(() => {
-    getQuestion();
+    if(player.correctAnswersInfo < MAX_POINTS) getQuestion();
+    else return;      //later should display scoreboard
     selectedAnswer.classList.remove(classToApply);
   }, 300);
   
