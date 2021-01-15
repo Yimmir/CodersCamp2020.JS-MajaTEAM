@@ -8,22 +8,25 @@ const imageBaseURL = 'static/assets/img/modes';
 const apiBaseURL = 'https://swapi.dev/api';
 
 
-export const getModeProperties = (mode) => {
-  let availableIDs, apiURL, imageURL;
-  switch (mode) {
-    case "people":
+export const getModeProperties = (selectedMode) => {
+  let modeName, availableIDs, apiURL, imageURL;
+  switch (selectedMode) {
+    case 0:
+      modeName = "people";
       availableIDs = PEOPLE_IDS;
       break;
-    case "vehicles":
+    case 1:
+      modeName = "vehicles";
       availableIDs = VEHICLES_IDS;
       break;
-    case "starships":
+    case 2:
+      modeName = "starships";
       availableIDs = STARSHIPS_IDS;
       break;
     default:
       console.log("Wrong mode")
   }
-  apiURL = loadDataFromAPI(apiBaseURL, mode);
-  imageURL = loadImage(imageBaseURL, mode);
+  apiURL = loadDataFromAPI(apiBaseURL, modeName);
+  imageURL = loadImage(imageBaseURL, modeName);
   return {availableIDs, apiURL, imageURL};
 }
