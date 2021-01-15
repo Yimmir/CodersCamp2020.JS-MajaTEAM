@@ -21,7 +21,8 @@
     --mode2s: #ffe81f71;
     --mode3: #ffe81f;
     --mode3s: #ffe81f71;
-
+    --correctAnswer: green;
+    --incorrectAnswer: red;
 }
 
 /* Import i deklaracja fontów */
@@ -530,9 +531,17 @@ h2 p {
     justify-content: center;
 }
 
-.answer:hover{
+.answer:not(:focus):hover {     /* only apply hover styling when the div is not focused */
     background-color: white;
     box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.5);
+}
+
+#quizAnswers-wrapper .correct {
+    background-color: var(--correctAnswer);
+}
+
+#quizAnswers-wrapper .incorrect {
+  background-color: var(--incorrectAnswer);
 }
 
 /* Zasady */
