@@ -1,11 +1,10 @@
 import {generateQuestion} from './questionGenerator';
 import {getModeProperties} from './gameMode';
 import {getRandomIntInclusive} from './random';
-import {player} from './player'
+import {player} from './player';
 
 const MAX_POINTS = 20;
 
-const mode = getModeProperties('starships');
 const questionElement = document.getElementById('quizImage');
 const answerElements = document.getElementsByClassName('answer');
 let currentQuestionID = 0;
@@ -13,21 +12,21 @@ let availableQuestionsIDs = [];
 let possiblityToAnswer = false;  //used to prevent answering mulitple times the same question
 let classToApply;
 
-export const startQuiz = () => {
+export const startQuiz = (mode) => {
   player.correctAnswersInfo = 0;
   availableQuestionsIDs = [...mode.availableIDs];
-  getQuestion();
+  getQuestion(mode);
 }
 
-const getQuestion = async() => {
+const getQuestion = async(mode) => {
   if(availableQuestionsIDs.length === 0) availableQuestionsIDs = [...mode.availableIDs];  //reload all questions when over
   const questionIndex = getRandomIntInclusive(0, availableQuestionsIDs.length-1);
   currentQuestionID = availableQuestionsIDs[questionIndex];
   availableQuestionsIDs.splice(questionIndex, 1);    //delete current question from the available question array
-  await displayQuestion(currentQuestionID);
+  await displayQuestion(mode, currentQuestionID);
 }
 
-const displayQuestion = async(id) => {
+const displayQuestion = async(mode, id) => {
   const question  = await generateQuestion(mode, id);
   // console.log(question.answers);
   questionElement.src = `data:image/png;base64,${question.questionImage}`;
@@ -35,12 +34,12 @@ const displayQuestion = async(id) => {
     answer.innerText = question.answers[index].content;
     if(question.answers[index].isCorrect) answer.dataset.type = "correct";
     else answer.dataset.type = "incorrect";
-    answer.addEventListener('click', checkAnswer);
+    answer.addEventListener('click', checkAnswer.bind(null, mode));
     possiblityToAnswer = true;
   });
 }
 
-const checkAnswer = (e) => {
+const checkAnswer = (mode, e) => {
   if (!possiblityToAnswer) return;
   possiblityToAnswer = false;
   const selectedAnswer = e.target;
@@ -54,7 +53,7 @@ const checkAnswer = (e) => {
   // console.log("Total score: " + player.correctAnswersInfo);
   selectedAnswer.classList.add(classToApply);
   setTimeout(() => {
-    if(player.correctAnswersInfo < MAX_POINTS) getQuestion();
+    if(player.correctAnswersInfo < MAX_POINTS) getQuestion(mode);
     else return;      //later should display scoreboard
     selectedAnswer.classList.remove(classToApply);
   }, 300);
