@@ -1,20 +1,183 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>CodersCamp2020 | Star Wars API QUIZ</title>
-    <link rel="stylesheet" href="styles/App.css"/>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-          rel="stylesheet">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CodersCamp2020 | Star Wars API QUIZ</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
-<div id="swquiz-app">
-</div>
+    <canvas id="canvas" style="width: 100%; height: 100%; padding: 0;margin: 0;"></canvas>
 
-<script src="src/index.js"></script>
+    <header>
+        <img src="assets/img/logo.svg" alt="starwars-logo">
+        <div class="home">
+            <img src="/assets/img/home.svg" alt="return-home">
+            <p>home</p>
+        </div>
+    </header>
+    <main>
+        <div id="div-play" class="play">
+            <button id="button-play" class="button">play</button>
+        </div>
+
+        <div id="div-start" class="start">
+            <div class="input-wrapper" id="nickname-form">
+                <label for="nickname">enter your name</label>
+                <input type="text" id="nickname" name="nickname" maxlength="15" autocomplete="off" spellcheck="false">
+                <button id="button-next" class="button">next</button>
+            </div>
+        </div>
+
+        <div id="div-menu" class="boxLarge">
+            <div class="menu-wrapper">
+                <h2>May the force be with you <p id="playerPlaceholder">EXAMPLE</p>. Test your Star Wars knowledge and defeat the empire!</h2>
+                <button id="button-start" class="button">start</button>
+                <button id="button-rules" class="button">rules</button>
+                <button id="button-highscores" class="button">highscores</button>
+            </div>
+        </div>
+
+        <div id="div-categories" class="boxLarge">
+            <div class="module-wrapper">
+                <header id="modeTitle">choose the mode</header>
+                <div class="mode-wrapper">
+                    <div class="mode button modeDisabled" id="mode-people">
+                        <p>people</p>
+                        <div class="description">
+                            <p>Can you recognize all the clone troopers? Test your character knowledge.</p>
+                        </div>
+                    </div>
+                    <div class="mode button modeDisabled" id="mode-vehicles">
+                        <p>vehicles</p>
+                        <div class="description">
+                            <p>What is AT-AT or AT-ST? Can you guess all the vehicles from the Universe?</p>
+                        </div>
+                    </div>
+                    <div class="mode button modeDisabled" id="mode-starships">
+                        <p>starships</p>
+                        <div class="description">
+                            <p>Can you tell the diffrence between TIE fighter TIE interceptor? Try yourself!</p>
+                        </div>
+                    </div>
+                </div>
+                <button id="button-startquiz" class="button">start quiz</button>
+            </div>
+        </div>
+
+        <div id="div-quiz" class="boxLarge">
+            <div class="module-wrapper">
+                <div id="timer-wrapper">
+                    <p id="start" class="text">START</p>
+                    <p id="five" class="text">5</p>
+                    <p id="ten" class="text">10</p>
+                    <p id="fifteen" class="text">15</p>
+                    <p id="finish" class="text">FINISH</p>
+                    <div id="startL" class="line"></div>
+                    <div id="fiveL" class="line"></div>
+                    <div id="tenL" class="line"></div>
+                    <div id="fifteenL" class="line"></div>
+                    <div id="finishL" class="line"></div>
+                    <img id="deathStar" src="/assets/img/end_deathstar.png" alt="Death Star">
+                    <div id="progressE" class="progress"></div>
+                    <div id="progressP" class="progress"></div>
+                    <img id="enemyS" class="ship" src="/assets/img/timer_enemy.svg" alt="Enemy Ship">
+                    <img id="playerS" class="ship" src="/assets/img/timer_player.svg" alt="Player Ship">
+                </div>
+                <div id="quiz-wrapper">
+                    <div id="quizImage-wrapper">
+                        <img src="/swapi-json-server/public/aa-9_coruscant_freighter.jpg" id="quizImage" alt="quizImage">
+                    </div>
+                    <div id ="quizQuestions-wrapper">
+                        <div id="quizQuestion">
+                            <p id="questionText">who is this character</p>
+                        </div>
+                        <div id="quizAnswers-wrapper">
+                            <div class="answer button"><span id="answer1">A</span></div>
+                            <div class="answer button"><span id="answer2">B</span></div>
+                            <div class="answer button"><span id="answer3">C</span></div>
+                            <div class="answer button"><span id="answer4">D</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="div-rules" class= boxLarge>
+            <div class="module-wrapper">
+                <div id="rules-wrapper">
+                    <header id="rulesHeader" class="headers"> 
+                        how to play
+                    </header>
+                    <div id="rulesIntro" class="rulesContent">
+                        <p>The empire rises in strength. Their new massive space station called Death Star is a lethal weapon able to destroy whole planets. The entire galaxy is in danger and planets of the Rebellion are the first to be vanished. Your mission is to board the X-wing fighter and destroy the Death Star. Our intelligence discovered critical vulnerabilities in this it’s nuclear core and that’s our chance to cripple the empire. Unfortunately you will have to get very close to the station, only then you can precisely aim for the critical spot. Empire forces won’t be standing still during your mission so expect their resistance. </p>
+                    </div>
+                    <div id="rules1" class="rulesContent">
+                        <h4 class="headers">mission</h4>
+                        <p>Your mission is to destroy the Death Star. To do so you will have to correctly answer 20 questions by recognizing attached photo. But beware, the enemy TIE fighter is chasing you. Fail to complete your task in time and you will be defeated.</p>
+                    </div>
+                    <div id="rules2" class="rulesContent">
+                        <h4 class="headers">categories</h4>
+                        <p>Start the quiz by selecting the category in which you would like to test your Star Wars knowledge. The options are:</p>
+                        <h5>PEOPLE / VEHICLES / STARSHIPS</h5>
+                        <p>Then decide on the difficulty level. The higher the level the less time you have to complete your task.</p>
+                    </div>
+                    <div id= "rules3" class="rulesContent">
+                        <h4 class="headers">timer</h4>
+                        <img src="assets/img/rules_timer.svg" alt="Timer legend">
+                        <p>You can see your progress during the quiz. Your spaceship will be slowly moving toward the Death Star as you correctly answer the questions. Watch out for the enemy fighter as you will lose if he get there first. Hurry up, the galaxy stake is in your hands.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="div-highscores" class="boxLarge">
+            <div class="module-wrapper">
+                <p>HIGHSCORES</p>
+                <div class="label">
+                    <p>NAME</p>
+                    <p>TIME</p>
+                </div>
+                <div class="result">
+                    <p class="name">Bob</p>
+                    <p class="time">0:38</p>
+                </div>
+                <div class="result">
+                    <p class="name">Jack</p>
+                    <p class="time">0:59</p>
+                </div>
+                <div class="result">
+                    <p class="name">Tom</p>
+                    <p class="time">1:18</p>
+                </div>
+                <div class="result">
+                    <p class="name">Willy</p>
+                    <p class="time">1:28</p>
+                </div>
+                <div class="result">
+                    <p class="name">Kate</p>
+                    <p class="time">1:33</p>
+                </div>
+                <button id="button-mainmenu">main menu</button>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <div class="footer-wrapper">
+            <img src="assets/img/arrows.svg" alt="creditsArrow">
+            <p>CREDITS</p>
+            <img src="assets/img/arrows.svg" alt="creditsArrow">
+        </div>
+    </footer>
+    
+    <script src="src/app/start-screen.js"></script>
+    <script src="src/index.js"></script>
 </body>
+
 </html>
