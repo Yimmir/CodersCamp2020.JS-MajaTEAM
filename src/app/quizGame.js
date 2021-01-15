@@ -10,6 +10,7 @@ let currentQuestionID = 0;
 let questionCounter = 0;
 let availableQuestionsIDs = [];
 let possiblityToAnswer = false;  //used to prevent answering mulitple times the same question
+let classToApply;
 
 export const startQuiz = () => {
   totalScore = 0;
@@ -47,9 +48,18 @@ const checkAnswer = (e) => {
   const selectedAnswer = e.target;
   if (selectedAnswer.dataset.type === "correct") {
     totalScore++;
+    classToApply = "correct";
+  }
+  else {
+    classToApply = "incorrect";
   }
   // console.log("Total score: " + totalScore);
-  getQuestion();
+  selectedAnswer.classList.add(classToApply);
+  setTimeout(() => {
+    getQuestion();
+    selectedAnswer.classList.remove(classToApply);
+  }, 300);
+  
 }
 
 
