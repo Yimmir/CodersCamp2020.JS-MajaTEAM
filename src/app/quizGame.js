@@ -1,5 +1,4 @@
 import {generateQuestion} from './questionGenerator';
-import {getModeProperties} from './gameMode';
 import {getRandomIntInclusive} from './random';
 import {player} from './player';
 
