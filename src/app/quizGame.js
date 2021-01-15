@@ -8,16 +8,13 @@ const MAX_POINTS = 20;
 const mode = getModeProperties('starships');
 const questionElement = document.getElementById('quizImage');
 const answerElements = document.getElementsByClassName('answer');
-let totalScore = 0;
 let currentQuestionID = 0;
-let questionCounter = 0;
 let availableQuestionsIDs = [];
 let possiblityToAnswer = false;  //used to prevent answering mulitple times the same question
 let classToApply;
 
 export const startQuiz = () => {
   player.correctAnswersInfo = 0;
-  questionCounter = 0;
   availableQuestionsIDs = [...mode.availableIDs];
   if (player.correctAnswersInfo<=2) getQuestion();
   else console.log("the ennd")
@@ -26,8 +23,6 @@ export const startQuiz = () => {
 const getQuestion = async() => {
   if(availableQuestionsIDs.length === 0) availableQuestionsIDs = [...mode.availableIDs];  //reload all questions when over
   const questionIndex = getRandomIntInclusive(0, availableQuestionsIDs.length-1);
-  ++questionCounter;
-  // console.log("Question nr:" + questionCounter);
   currentQuestionID = availableQuestionsIDs[questionIndex];
   availableQuestionsIDs.splice(questionIndex, 1);    //delete current question from the available question array
   await displayQuestion(currentQuestionID);
