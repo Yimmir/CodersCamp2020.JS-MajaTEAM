@@ -9,24 +9,27 @@ const apiBaseURL = 'https://swapi.dev/api';
 
 
 export const getModeProperties = (selectedMode) => {
-  let modeName, availableIDs, apiURL, imageURL;
+  let modeName, availableIDs, apiURL, imageURL, ;
   switch (selectedMode) {
     case 0:
       modeName = "people";
       availableIDs = PEOPLE_IDS;
+      questionText = "Who is the character?"
       break;
     case 1:
       modeName = "vehicles";
       availableIDs = VEHICLES_IDS;
+      questionText = "Do you recognize this vehicle?"
       break;
     case 2:
       modeName = "starships";
       availableIDs = STARSHIPS_IDS;
+      questionText = "Do you recognize this starship?"
       break;
     default:
       console.log("Wrong mode")
   }
   apiURL = loadDataFromAPI(apiBaseURL, modeName);
   imageURL = loadImage(imageBaseURL, modeName);
-  return {availableIDs, apiURL, imageURL};
+  return {availableIDs, apiURL, imageURL, questionText};
 }
