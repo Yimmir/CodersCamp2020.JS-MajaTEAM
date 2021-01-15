@@ -75,9 +75,10 @@ export const App = ({options}) => {
     for (let i = 0; i < modes.length; i++) {
         modes[i].addEventListener('click', () => {
             for (let j = 0; j < modes.length; j++) {
-                modes[j].style.backgroundColor = '#ffe81f';
+                modes[j].classList.remove('modeEnabled');
             }
-            modes[i].style.backgroundColor = 'white';
+            modes[i].classList.remove('modeDisabled');
+            modes[i].classList.add('modeEnabled');
         })
     }
 

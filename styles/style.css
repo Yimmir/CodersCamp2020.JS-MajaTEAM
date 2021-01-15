@@ -15,6 +15,13 @@
     --yelow: #ffe81f;
     --enemyPosition: 10%;
     --playerPosition: 70%;
+    --mode1: #ffe81f;
+    --mode1s: #ffe81f71;
+    --mode2: #ffe81f;
+    --mode2s: #ffe81f71;
+    --mode3: #ffe81f;
+    --mode3s: #ffe81f71;
+
 }
 
 /* Import i deklaracja fontów */
@@ -47,6 +54,10 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
+}
+
+body:hover{
+    cursor:default;
 }
 
 canvas {
@@ -129,7 +140,7 @@ footer {
     display: block;
 }
 
-.play .button-play {
+.play .button {
     position: absolute;
     top: 50vh;
     left: 50vw;
@@ -150,7 +161,7 @@ footer {
 
 }
 
-.button-play:hover {
+.play .button:hover {
     box-shadow: 0px 0px 15px 10px rgba(255, 232, 31, 0.60);
 }
 
@@ -199,7 +210,7 @@ footer {
     box-shadow: 0px 0px 15px 5px rgba(255, 232, 31, 0.75);
 }
 
-.button-next {
+#button-next, #button-startquiz {
     background-color: transparent;
     color: var(--yelow);
     border: none;
@@ -209,7 +220,7 @@ footer {
     text-shadow: 0px 0px 5px rgba(255, 232, 31, 0.75);
 }
 
-.button-next:hover {
+#button-next:hover, #button-startquiz:hover {
     text-shadow: 0px 0px 15px rgba(255, 232, 31, 0.60);
 }
 
@@ -220,7 +231,7 @@ footer {
     width: 87%;
     max-width: 1000px;
     border: 5px solid var(--yelow);
-    box-shadow: 0px 0px 10px 3px rgba(255,232,31,0.50);
+    box-shadow: 0px 0px 10px 3px #ffe81f80;
     background-color: rgba(0, 0, 0, 0.65);
     display: flex;
     flex-direction: column;
@@ -245,7 +256,7 @@ h2 p {
     color: white;
 }
 
-.button {
+.menu-wrapper .button {
     background-color: var(--yelow);
     border: none;
     width: 90%;
@@ -258,7 +269,7 @@ h2 p {
     margin: 5px 0;
 }
 
-.button:hover{
+.menu-wrapper .button:hover{
     background-color: white;
     box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.5);
 }
@@ -284,13 +295,28 @@ h2 p {
 }
 
 .mode {
-    background-color: var(--yelow);
     text-align: center;
     border-radius: 5px;
     margin: 2% 0;
     height: 31%;
     display: flex;
     flex-direction: column;
+}
+
+.modeDisabled {
+    background-color: var(--yelow);
+}
+
+.modeDisabled:hover {
+    box-shadow: 0px 0px 10px 3px #ffe81f75;
+}
+
+.modeEnabled {
+    background-color: white;
+}
+
+.modeEnabled:hover {
+    box-shadow: 0px 0px 10px 3px #ffffff75;
 }
 
 .mode p {
@@ -657,6 +683,12 @@ h2 p {
     font-size: 30px;
     line-height: 30px;
     text-transform: uppercase;
+}
+
+/* Ustawienia hoverów */
+
+.button:hover{
+    cursor: pointer;
 }
 
 /* RWD */
