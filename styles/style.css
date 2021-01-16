@@ -15,13 +15,6 @@
     --yelow: #ffe81f;
     --enemyPosition: 10%;
     --playerPosition: 70%;
-    --mode1: #ffe81f;
-    --mode1s: #ffe81f71;
-    --mode2: #ffe81f;
-    --mode2s: #ffe81f71;
-    --mode3: #ffe81f;
-    --mode3s: #ffe81f71;
-
 }
 
 /* Import i deklaracja fontów */
@@ -48,17 +41,32 @@
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
     background-color: black;
     display: flex;
     flex-direction: column;
-    position: relative;
+    height: 100vh;
+    width: 100vw;
 }
 
 body:hover{
     cursor:default;
 }
+
+#body-wrapper {
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 1s ease-in-out;
+    box-shadow: 0px 1px 7px 4px rgba(0,0,0,0.35);
+}
+
+.lift {
+    transform: translateY(-20%);
+}
+
 
 canvas {
     width: 100%;
@@ -235,7 +243,7 @@ footer {
 .menu-wrapper {
     align-self: flex-start;
     width: 87%;
-    max-width: 1000px;
+    max-width: 800px;
     border: 5px solid var(--yelow);
     box-shadow: 0px 0px 10px 3px #ffe81f80;
     background-color: rgba(0, 0, 0, 0.65);
@@ -697,11 +705,75 @@ h2 p {
     cursor: pointer;
 }
 
+/* Credits */
+
+.credits {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    background-color: #303336;
+    height: 20vh;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+    "creditsText creditsText"
+    "1 2";
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    padding: 10px 5%;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
+    gap: 1% 10px;
+}
+
+#creditsText {
+    grid-area: creditsText;
+    text-align: justify;
+    text-align-last: center;
+    font-family: credits, sans-serif;
+    font-size: 0.8em;
+    color: var(--yelow);
+}
+
+#credits a {
+    height: 100%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+#camp {
+    height: 25%;
+}
+
+#camp:hover{
+    -webkit-filter: drop-shadow(0px 0px 5px #fdc640);
+    filter: drop-shadow(0px 0px 5px #fdc640);
+}
+
+#github {
+    height: 35%;
+    margin-bottom: 3%;
+}
+
+#github:hover{
+    -webkit-filter: drop-shadow(0px 0px 5px #0287cf);
+    filter: drop-shadow(0px 0px 5px #0287cf);
+}
+
+
+
+
 /* RWD */
 
 /* Dla trybu landscape */
 
 @media (orientation: landscape) {
+    .lift {
+        transform: translateY(-15%);
+    }
     .home {
         height: 43%;
     }
@@ -753,7 +825,7 @@ h2 p {
         grid-template-rows: 10% auto;
         font-size: 1.2em;
         padding: 0 1% 1%;
-        gap: 2%;
+        gap: 1% 2%;
     }
     #rules-wrapper p {
         font-size: 0.9em;
@@ -763,5 +835,16 @@ h2 p {
     }
     #rules3 img {
         width: 80%;
+    }
+    #credits {
+        height: 15vh;
+        grid-template-areas:
+        "1 creditsText 2";
+        gap: 0 5%;
+        grid-template-columns: 2fr 3fr 2fr;
+        grid-template-rows: 100%;
+    }
+    #creditsText {
+        font-size: max(0.9em, 12px);
     }
 }

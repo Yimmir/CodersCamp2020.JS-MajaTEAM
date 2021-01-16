@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+<div id="body-wrapper">
     <canvas id="canvas" style="width: 100%; height: 100%; padding: 0;margin: 0;"></canvas>
 
     <header>
@@ -31,7 +31,7 @@
         <div id="div-start" class="start">
             <div class="input-wrapper" id="nickname-form">
                 <label for="nickname">enter your name</label>
-                <input type="text" id="nickname" name="nickname" maxlength="15" autocomplete="off" spellcheck="false">
+                <input type="text" id="nickname" name="nickname" maxlength="15" autocomplete="off" spellcheck="false" autofocus>
                 <button id="button-next" class="button">next</button>
             </div>
         </div>
@@ -169,7 +169,7 @@
         </div>
     </main>
     <footer>
-        <div class="footer-wrapper">
+        <div id="footer" class="footer-wrapper button">
             <img src="assets/img/arrows.svg" alt="creditsArrow">
             <p>CREDITS</p>
             <img src="assets/img/arrows.svg" alt="creditsArrow">
@@ -178,6 +178,12 @@
     
     <script src="src/app/start-screen.js"></script>
     <script src="src/index.js"></script>
+</div>
+<div id="credits" class="credits">
+    <p id="creditsText">Star Wars Quiz was created as a team project for CodersCamp 2020 edition.</p>
+    <a href="https://coderscamp.edu.pl/" target="_blank"><img id="camp" src="/assets/img/coderscamp.svg" alt="CodersCamp"></a>
+    <a href="https://github.com/Yimmir/CodersCamp2020.JS-MajaTEAM" target="_blank"><img id="github" src="/assets/img/github.svg" alt="GitHub Repository"></a>
+</div>
 </body>
 
 </html>

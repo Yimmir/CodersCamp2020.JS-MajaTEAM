@@ -11,6 +11,8 @@ export const App = ({options}) => {
     const divRules = document.getElementById("div-rules");
     const divHighscores = document.getElementById("div-highscores");
 
+    const appScreen = document.getElementById("body-wrapper");
+
     //deklaracje przycisków
     const btnPlay = document.getElementById("button-play");
     const btnNext = document.getElementById("button-next");
@@ -20,17 +22,28 @@ export const App = ({options}) => {
     const btnRules = document.getElementById("button-rules");
     const btnHighscores = document.getElementById("button-highscores");
     const btnHome = document.getElementById("home");
+    const btnFooter = document.getElementById("footer");
     
     //deklaracje wyboru trybu
     const modes = document.querySelectorAll(".mode")
 
     //deklaracje inne
     const playerOutput = document.getElementById("playerPlaceholder");
+    const textBox = document.getElementById("nickname");
 
     btnPlay.addEventListener('click', () => {
         divPlay.style.display = "none";
         divStart.style.display = "block";
+        textBox.focus();
     })
+
+    textBox.addEventListener("keyup", function(event) {
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        btnNext.click();
+        }
+    });
 
     //funkcje zmiany ekranu
     btnNext.addEventListener('click', () => {
@@ -103,4 +116,11 @@ export const App = ({options}) => {
     //        console.log('Hello');
     //      });
     //  }
+
+    //Operator stopki
+
+    btnFooter.addEventListener('click', () => {
+        appScreen.classList.toggle('lift')
+    })
+
 }
