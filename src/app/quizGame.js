@@ -9,7 +9,6 @@ const answerElements = document.getElementsByClassName('answer');
 let currentQuestionID = 0;
 let availableQuestionsIDs = [];
 let possiblityToAnswer = false;  //used to prevent answering mulitple times the same question
-let classToApply;
 
 export const startQuiz = (mode) => {
   player.correctAnswersInfo = 0;
@@ -39,7 +38,8 @@ const displayQuestion = async(mode, id) => {
 }
 
 const checkAnswer = (mode, e) => {
-  const noHoverClass = 'no-hover'
+  let classToApply;
+  const noHoverClass = 'no-hover';
   if (!possiblityToAnswer) return;
   possiblityToAnswer = false;
   const selectedAnswer = e.target;
