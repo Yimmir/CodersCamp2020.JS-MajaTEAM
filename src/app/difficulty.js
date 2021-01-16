@@ -9,6 +9,8 @@
                 return playTime = 120;
             case '3':
                 return playTime = 60;
+            default:
+                console.log("Difficulty level is not set");
         }
     }
 
