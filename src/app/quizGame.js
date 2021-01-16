@@ -39,6 +39,7 @@ const displayQuestion = async(mode, id) => {
 }
 
 const checkAnswer = (mode, e) => {
+  const noHoverClass = 'no-hover'
   if (!possiblityToAnswer) return;
   possiblityToAnswer = false;
   const selectedAnswer = e.target;
@@ -51,10 +52,12 @@ const checkAnswer = (mode, e) => {
   }
   // console.log("Total score: " + player.correctAnswersInfo);
   selectedAnswer.classList.add(classToApply);
+  selectedAnswer.classList.add(noHoverClass)
   setTimeout(() => {
     if(player.correctAnswersInfo < MAX_POINTS) getQuestion(mode);
     else return;      //later should display scoreboard
     selectedAnswer.classList.remove(classToApply);
+    selectedAnswer.classList.remove(noHoverClass);
   }, 300);
   
 }
