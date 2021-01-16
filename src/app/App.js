@@ -1,4 +1,6 @@
 import { player } from "./player.js";
+import {getLocalScores, clearLocalScoreList, saveLocalScores} from  "./localScoreboard"
+import {getGlobalScores, clearGlobalScoreList} from './globalScoreboard';
 
 export const App = ({options}) => {
 
@@ -10,7 +12,6 @@ export const App = ({options}) => {
     const divQuiz = document.getElementById("div-quiz");
     const divRules = document.getElementById("div-rules");
     const divHighscores = document.getElementById("div-highscores");
-
     const appScreen = document.getElementById("body-wrapper");
 
     //deklaracje przycisków
@@ -30,6 +31,7 @@ export const App = ({options}) => {
     //deklaracje inne
     const playerOutput = document.getElementById("playerPlaceholder");
     const textBox = document.getElementById("nickname");
+    const loader = document.getElementById("highScoresLoader");
 
     btnPlay.addEventListener('click', () => {
         divPlay.style.display = "none";
@@ -77,15 +79,20 @@ export const App = ({options}) => {
     })
 
     btnHighscores.addEventListener('click', () => {
+        loader.style.display = 'block';
         divMenu.style.display = "none";
         divHighscores.style.display = "flex";
         btnHome.style.display = "flex";
-    })
+        saveLocalScores("Mateusz", '80');
+        saveLocalScores("Dariusz", '90');
+        saveLocalScores("Adam", '100');
+        getLocalScores();
+        getGlobalScores().then(() => {
+            loader.style.display = 'none';
+        });
+        localStorage.clear();
+    });
 
-    btnMainMenu.addEventListener('click', () => {
-        divHighscores.style.display = "none";
-        divMenu.style.display = "flex";
-    })
 
     //Powrót do menu
     btnHome.addEventListener('click', () =>{
@@ -93,6 +100,8 @@ export const App = ({options}) => {
         activeDiv.style.display = "none";
         divMenu.style.display = "flex";
         btnHome.style.display = "none";
+        clearGlobalScoreList();
+        clearLocalScoreList();
     })
 
     //jaki tryb został wybrany
