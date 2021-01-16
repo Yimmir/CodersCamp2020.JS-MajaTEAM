@@ -4,14 +4,11 @@
  function timeInSeconds() {
         switch (level.value) {
             case '1':
-                return playTime = 60;
-                break;
+                return playTime = 180;
             case '2':
                 return playTime = 120;
-                break;
             case '3':
-                return playTime = 180;
-                break;
+                return playTime = 60;
         }
     }
 
