@@ -13,12 +13,12 @@
 </head>
 
 <body>
-
+<div id="body-wrapper">
     <canvas id="canvas" style="width: 100%; height: 100%; padding: 0;margin: 0;"></canvas>
 
     <header>
         <img src="assets/img/logo.svg" alt="starwars-logo">
-        <div class="home">
+        <div id="home" class="home button">
             <img src="/assets/img/home.svg" alt="return-home">
             <p>home</p>
         </div>
@@ -31,7 +31,7 @@
         <div id="div-start" class="start">
             <div class="input-wrapper" id="nickname-form">
                 <label for="nickname">enter your name</label>
-                <input type="text" id="nickname" name="nickname" maxlength="15" autocomplete="off" spellcheck="false">
+                <input type="text" id="nickname" name="nickname" maxlength="15" autocomplete="off" spellcheck="false" autofocus>
                 <button id="button-next" class="button">next</button>
             </div>
         </div>
@@ -67,6 +67,14 @@
                             <p>Can you tell the diffrence between TIE fighter TIE interceptor? Try yourself!</p>
                         </div>
                     </div>
+                </div>
+                <div class="div-level">
+                    <label for="difficulty">Select difficulty</label>
+                        <select name="difficulty" id="difficulty">
+                            <option value="1">Easy</option>
+                            <option value="2">Medium</option>
+                            <option value="3">Hard</option>
+                        </select>
                 </div>
                 <button id="button-startquiz" class="button">start quiz</button>
             </div>
@@ -134,42 +142,41 @@
                         <p>You can see your progress during the quiz. Your spaceship will be slowly moving toward the Death Star as you correctly answer the questions. Watch out for the enemy fighter as you will lose if he get there first. Hurry up, the galaxy stake is in your hands.</p>
                     </div>
                 </div>
+                <button id="button-startquiz" class="button-startquiz">start quiz</button>
             </div>
         </div>
         <div id="div-highscores" class="boxLarge">
-            <div class="module-wrapper">
-                <p>HIGHSCORES</p>
-                <div class="label">
-                    <p>NAME</p>
-                    <p>TIME</p>
+            <div class="highScores">
+                <div class="module-wrapper">
+                    <p>LocalScores</p>
+                    <div class="label">
+                        <p>RANK</p>
+                        <p>NAME</p>
+                        <p>TIME</p>
+                    </div>
+                    <div class="scores-grid ">
+                        <ul class="result rank-local"></ul>
+                        <ul class="result name-local"></ul>
+                        <ul class="result time-local"></ul>
+                    </div>
+                    <p>GlobalScores</p>
+                    <div class="label">
+                        <p>RANK</p>
+                        <p>NAME</p>
+                        <p>TIME</p>
+                    </div>
+                    <div id="highScoresLoader" class="loader"></div>
+                    <div class="scores-grid scores-grid-global">
+                        <ul class="result rank-global"></ul>
+                        <ul class="result name-global"></ul>
+                        <ul class="result time-global"></ul>
+                    </div>
                 </div>
-                <div class="result">
-                    <p class="name">Bob</p>
-                    <p class="time">0:38</p>
-                </div>
-                <div class="result">
-                    <p class="name">Jack</p>
-                    <p class="time">0:59</p>
-                </div>
-                <div class="result">
-                    <p class="name">Tom</p>
-                    <p class="time">1:18</p>
-                </div>
-                <div class="result">
-                    <p class="name">Willy</p>
-                    <p class="time">1:28</p>
-                </div>
-                <div class="result">
-                    <p class="name">Kate</p>
-                    <p class="time">1:33</p>
-                </div>
-                <button id="button-mainmenu">main menu</button>
             </div>
-
         </div>
     </main>
     <footer>
-        <div class="footer-wrapper">
+        <div id="footer" class="footer-wrapper button">
             <img src="assets/img/arrows.svg" alt="creditsArrow">
             <p>CREDITS</p>
             <img src="assets/img/arrows.svg" alt="creditsArrow">
@@ -178,6 +185,12 @@
     
     <script src="src/app/start-screen.js"></script>
     <script src="src/index.js"></script>
+</div>
+<div id="credits" class="credits">
+    <p id="creditsText">Star Wars Quiz was created as a team project for CodersCamp 2020 edition.</p>
+    <a href="https://coderscamp.edu.pl/" target="_blank"><img id="camp" src="/assets/img/coderscamp.svg" alt="CodersCamp"></a>
+    <a href="https://github.com/Yimmir/CodersCamp2020.JS-MajaTEAM" target="_blank"><img id="github" src="/assets/img/github.svg" alt="GitHub Repository"></a>
+</div>
 </body>
 
 </html>

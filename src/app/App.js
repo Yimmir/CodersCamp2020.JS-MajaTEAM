@@ -1,6 +1,8 @@
 import { player } from "./player.js";
 import {getModeProperties} from './gameMode';
 import { startQuiz } from "./quizGame.js";
+import {getLocalScores, clearLocalScoreList, saveLocalScores} from  "./localScoreboard"
+import {getGlobalScores, clearGlobalScoreList} from './globalScoreboard';
 
 export const App = ({options}) => {
 
@@ -12,6 +14,7 @@ export const App = ({options}) => {
     const divQuiz = document.getElementById("div-quiz");
     const divRules = document.getElementById("div-rules");
     const divHighscores = document.getElementById("div-highscores");
+    const appScreen = document.getElementById("body-wrapper");
 
     //deklaracje przycisków
     const btnPlay = document.getElementById("button-play");
@@ -21,17 +24,30 @@ export const App = ({options}) => {
     const btnMainMenu = document.getElementById("button-mainmenu");
     const btnRules = document.getElementById("button-rules");
     const btnHighscores = document.getElementById("button-highscores");
+    const btnHome = document.getElementById("home");
+    const btnFooter = document.getElementById("footer");
     
     //deklaracje wyboru trybu
     const modes = document.querySelectorAll(".mode")
 
     //deklaracje inne
     const playerOutput = document.getElementById("playerPlaceholder");
+    const textBox = document.getElementById("nickname");
+    const loader = document.getElementById("highScoresLoader");
 
     btnPlay.addEventListener('click', () => {
         divPlay.style.display = "none";
         divStart.style.display = "block";
+        textBox.focus();
     })
+
+    textBox.addEventListener("keyup", function(event) {
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        btnNext.click();
+        }
+    });
 
     //funkcje zmiany ekranu
     btnNext.addEventListener('click', () => {
@@ -49,6 +65,7 @@ export const App = ({options}) => {
     btnStart.addEventListener('click', () => {
         divMenu.style.display = "none";
         divCategories.style.display = "flex";
+        btnHome.style.display = "flex";
     })
 
     btnStartQuiz.addEventListener('click', () => {
@@ -56,21 +73,39 @@ export const App = ({options}) => {
         divQuiz.style.display = "flex";
         startQuiz(modeSelected);
 
+        btnHome.style.display = "flex";
     })
 
     btnRules.addEventListener('click', () => {
         divMenu.style.display = "none";
         divRules.style.display = "flex";
+        btnHome.style.display = "flex";
     })
 
     btnHighscores.addEventListener('click', () => {
+        loader.style.display = 'block';
         divMenu.style.display = "none";
         divHighscores.style.display = "flex";
-    })
+        btnHome.style.display = "flex";
+        saveLocalScores("Mateusz", '80');
+        saveLocalScores("Dariusz", '90');
+        saveLocalScores("Adam", '100');
+        getLocalScores();
+        getGlobalScores().then(() => {
+            loader.style.display = 'none';
+        });
+        localStorage.clear();
+    });
 
-    btnMainMenu.addEventListener('click', () => {
-        divHighscores.style.display = "none";
+
+    //Powrót do menu
+    btnHome.addEventListener('click', () =>{
+        let activeDiv = document.querySelector('.boxLarge[style*="display: flex;"]');
+        activeDiv.style.display = "none";
         divMenu.style.display = "flex";
+        btnHome.style.display = "none";
+        clearGlobalScoreList();
+        clearLocalScoreList();
     })
 
     //jaki tryb został wybrany
@@ -95,4 +130,11 @@ export const App = ({options}) => {
     //        console.log('Hello');
     //      });
     //  }
+
+    //Operator stopki
+
+    btnFooter.addEventListener('click', () => {
+        appScreen.classList.toggle('lift')
+    })
+
 }
