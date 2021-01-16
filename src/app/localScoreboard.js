@@ -11,16 +11,12 @@ const getLocalScores = function() {
       ulDivs.forEach((value1) => {
         let li = document.createElement("li");
         let str = value1.className;
-        switch (str) {
-          case "result rank-local":
-            li.innerHTML = `${localLp}`;
-            break;
-          case "result name-local":
-            li.innerHTML = `${value.name}`;
-            break;
-          case "result time-local":
-            li.innerHTML = `${value.score}`;
-            break;
+        if (str.includes("rank-local")) {
+          li.innerHTML = `${localLp}`;
+        } else if (str.includes("name-local")) {
+          li.innerHTML = `${value.name}`;
+        } else {
+          li.innerHTML = `${value.score}`;
         }
         value1.appendChild(li)
       });
