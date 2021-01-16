@@ -662,11 +662,9 @@ select > option {
 
 /* Tablica wyników */
 
-#div-highscores .module-wrapper {
+.highScores .module-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
     position: absolute;
     height: 70vh;
     width: 95vw;
@@ -678,47 +676,56 @@ select > option {
     padding: 6px;
 }
 
-#div-highscores .module-wrapper>p {
+.highScores .module-wrapper>p {
     font-size: 24px;
     color: yellow;
     font-weight: bold;
 }
 
-#div-highscores .module-wrapper .label {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+.highScores .module-wrapper .label {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr;
+    grid-gap: 1rem;
+    justify-content: center;
+    align-content: center;
     font-size: 18px;
 }
 
-#div-highscores .module-wrapper .label p {
+.highScores .module-wrapper .label p {
     display: inline-block;
+    margin: 1rem 1rem;
     width: 30%;
     text-align: center;
     color: yellow;
     font-weight: bold;
 }
 
-#div-highscores .module-wrapper .result {
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
-    background-color: yellow;
+.highScores .module-wrapper .scores-grid {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr;
+    grid-gap: 1rem;
+}
+
+.highScores .module-wrapper .scores-grid.scores-grid-global {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.highScores .module-wrapper .scores-grid ul li{
+    background-color: #ffe81f;
     color: black;
-    border-radius: 8px;
-    padding-left: 10px;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    font-weight: bolder;
+    border-radius: 10px;
+}
+.highScores .module-wrapper .scores-grid ul li p{
+    text-align: center;
 }
 
-#div-highscores .module-wrapper .result p {
-    display: inline-block;
-}
-
-#div-highscores .module-wrapper .result .time {
-    padding-right: 10px;
-    float: right
-}
-
-#div-highscores .module-wrapper button {
+.highScores .module-wrapper button {
     width: 100%;
     height: 40px;
     border: none;
@@ -729,6 +736,25 @@ select > option {
     text-transform: uppercase;
 }
 
+.highScores .scores-grid.scores-grid-global::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+/* Track */
+.highScores ..scores-grid.scores-grid-global::-webkit-scrollbar-track {
+    background: inherit;
+}
+
+/* Handle */
+.highScores .scores-grid.scores-grid-global::-webkit-scrollbar-thumb {
+    background: darkslategray;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+.highScores .scoresListGlobal::-webkit-scrollbar-thumb:hover {
+    background: white;
+}
 /* Ustawienia hoverów */
 
 .button:hover{
@@ -793,7 +819,24 @@ select > option {
     filter: drop-shadow(0px 0px 5px #0287cf);
 }
 
+/*Utilities*/
 
+.loader {
+    display: none;
+    border: 16px solid black;
+    border-top: 16px solid yellow;
+    border-bottom: 16px solid yellow;
+    border-radius: 50%;
+    margin:  2rem auto;
+    width: 120px;
+    height: 120px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
 
 /* RWD */
