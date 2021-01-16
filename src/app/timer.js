@@ -1,5 +1,5 @@
 const timer = (score) => {
-    const howManyMinutes = 0.2;
+    const howManyMinutes = 2;
     let time = howManyMinutes * 60;
     let position = 0;
     const step = 100 / time;
