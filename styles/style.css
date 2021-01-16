@@ -491,6 +491,8 @@ h2 p {
 #quizImage {
     height: 100%;
     border: 5px solid var(--yelow);
+    object-fit: cover;
+    object-position: top;
 }   
 
 #quizQuestions-wrapper{
