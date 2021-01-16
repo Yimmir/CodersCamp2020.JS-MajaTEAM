@@ -28,7 +28,7 @@ export const getModeProperties = (selectedMode) => {
       questionText = "Do you recognize this starship?"
       break;
     default:
-      console.log("Wrong mode")
+      throw new Error("Wrong mode!")
   }
   questionTextElement.innerText = questionText;
   apiURL = loadDataFromAPI(apiBaseURL, modeName);

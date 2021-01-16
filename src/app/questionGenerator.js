@@ -1,13 +1,17 @@
 import {getRandomIntInclusive} from './random';
 
 export const generateQuestion = async(mode, id) => {
-  const questionImage = await getQuestionImage(mode, id);
-  const correctAnswer = await getCorrectAnswer(mode,id);
-  const incorrectAnswers = await getIncorrectAnswers(mode,id);
-  const answers = incorrectAnswers;
-  const randomIndex = getRandomIntInclusive(0, 3);
-  answers.splice(randomIndex, 0, correctAnswer);
-  return {questionImage, answers};
+  try {
+    const questionImage = await getQuestionImage(mode, id);
+    const correctAnswer = await getCorrectAnswer(mode,id);
+    const incorrectAnswers = await getIncorrectAnswers(mode,id);
+    const answers = incorrectAnswers;
+    const randomIndex = getRandomIntInclusive(0, 3);
+    answers.splice(randomIndex, 0, correctAnswer);
+    return {questionImage, answers};
+  } catch(error) {
+    throw new Error(error);
+  }
 }
 
 const getQuestionImage = async(mode, id) => {
@@ -30,7 +34,7 @@ const getIncorrectAnswers = async(mode, correctID) => {
     answersIDs.push(availableAnswersIDs[index]);
     availableAnswersIDs.splice(index, 1);
   }
-  const incorrectAnswers = await Promise.all([...answersIDs].map(async id => {
+  const incorrectAnswers = Promise.all([...answersIDs].map(async id => {
     const data = await mode.apiURL.byID(id);
     return {content: data.name, isCorrect: false};
   }));
