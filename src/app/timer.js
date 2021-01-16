@@ -1,11 +1,11 @@
 const timer = (score) => {
-    const howManyMinutes = 2;
+    const howManyMinutes = 0.2;
     let time = howManyMinutes * 60;
     let position = 0;
     const step = 100 / time;
     const ships = document.querySelector(':root');
 
-    setInterval(countdown, 1000);
+    const interval = setInterval(countdown, 1000);
 
     function countdown() {
         ships.style.setProperty('--playerPosition', `${score * 5}%`);
@@ -14,13 +14,18 @@ const timer = (score) => {
         if (score < 20 && time > 0) {
             position += step;
             time--;
-        }
-        else {
+        } else if (score >= 20) {
+            clearInterval(interval);
             return time;
+        } else {
+            clearInterval(interval);
+            return score;
         }
 
         position = position > 100 ? 100 : position;
     }
 }
 
-export { timer };
+export {
+    timer
+};
