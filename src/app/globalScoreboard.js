@@ -1,3 +1,5 @@
+import { decorateScore } from './localScoreboard';
+
 let globalScores = [];
 let ulDivs = [document.querySelector(".rank-global"),
   document.querySelector(".name-global"),
@@ -24,15 +26,14 @@ const getGlobalScores = async function() {
            } else if (str.includes("name-global")) {
              li.innerHTML = `${value.name}`;
            } else {
-             li.innerHTML = `${value.score}`;
+             let score = decorateScore(value.score);
+             li.innerHTML = `${score[0]}:${score[1]}`;
            }
            value1.appendChild(li)
          });
          globalLp++
        })
-     }
-
-     }
+     }}
    );
 };
 
