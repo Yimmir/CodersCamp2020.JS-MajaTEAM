@@ -15,6 +15,14 @@
     --yelow: #ffe81f;
     --enemyPosition: 10%;
     --playerPosition: 70%;
+    --mode1: #ffe81f;
+    --mode1s: #ffe81f71;
+    --mode2: #ffe81f;
+    --mode2s: #ffe81f71;
+    --mode3: #ffe81f;
+    --mode3s: #ffe81f71;
+    --correctAnswer: green;
+    --incorrectAnswer: red;
 }
 
 /* Import i deklaracja fontów */
@@ -534,6 +542,8 @@ select > option {
 #quizImage {
     height: 100%;
     border: 5px solid var(--yelow);
+    object-fit: cover;
+    object-position: top;
 }   
 
 #quizQuestions-wrapper{
@@ -574,9 +584,17 @@ select > option {
     justify-content: center;
 }
 
-.answer:hover{
+.answer:not(.no-hover):hover {     
     background-color: white;
     box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.5);
+}
+
+.correct {
+    background-color: var(--correctAnswer);
+}
+
+.incorrect {
+  background-color: var(--incorrectAnswer);
 }
 
 /* Zasady */
@@ -741,7 +759,7 @@ select > option {
 }
 
 /* Track */
-.highScores ..scores-grid.scores-grid-global::-webkit-scrollbar-track {
+.highScores .scores-grid.scores-grid-global::-webkit-scrollbar-track {
     background: inherit;
 }
 
