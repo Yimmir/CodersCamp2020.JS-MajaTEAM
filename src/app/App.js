@@ -1,78 +1,126 @@
 import { player } from "./player.js";
-import {getLocalScores} from  "./localScoreboard"
-import {getGlobalScores} from './globalScoreboard';
-
-
 
 export const App = ({options}) => {
 
-const divStart = document.getElementById("div-start");
-const divPlay = document.getElementById("div-play");
-const divMenu = document.getElementById("div-menu");
-const divCategories = document.getElementById("div-categories");
-const divScores = document.getElementById("div-highScores");
-const divScoresLocalList = document.querySelector(".scoresListLocal");
-const divScoresGlobalList = document.querySelector(".scoresListGlobal");
-const divLoader = document.querySelector(".loader");
+    //deklaracje divów
+    const divStart = document.getElementById("div-start");
+    const divPlay = document.getElementById("div-play");
+    const divMenu = document.getElementById("div-menu");
+    const divCategories = document.getElementById("div-categories");
+    const divQuiz = document.getElementById("div-quiz");
+    const divRules = document.getElementById("div-rules");
+    const divHighscores = document.getElementById("div-highscores");
 
-const btnPlay = document.getElementById("button-play");
-const btnNext = document.getElementById("button-next");
-const btnStart = document.getElementById("button-start");
-const btnHighScores = document.getElementById("button-highscores");
-const btnHighScoresBack = document.getElementById("button-back");
+    const appScreen = document.getElementById("body-wrapper");
 
-btnPlay.addEventListener('click', () => {
-    divPlay.style.display = "none";
-    divStart.style.display = "block";
-})
+    //deklaracje przycisków
+    const btnPlay = document.getElementById("button-play");
+    const btnNext = document.getElementById("button-next");
+    const btnStart = document.getElementById("button-start");
+    const btnStartQuiz = document.getElementById("button-startquiz");
+    const btnMainMenu = document.getElementById("button-mainmenu");
+    const btnRules = document.getElementById("button-rules");
+    const btnHighscores = document.getElementById("button-highscores");
+    const btnHome = document.getElementById("home");
+    const btnFooter = document.getElementById("footer");
+    
+    //deklaracje wyboru trybu
+    const modes = document.querySelectorAll(".mode")
 
-btnNext.addEventListener('click', () => {
-    const userNickname = document.getElementById("nickname").value;
-    if (userNickname.length >= 3) {
-        player.playerName = userNickname;
-        divStart.style.display = "none";
-        divMenu.style.display = "block";
-    } else {
-        alert('Name to short!')
+    //deklaracje inne
+    const playerOutput = document.getElementById("playerPlaceholder");
+    const textBox = document.getElementById("nickname");
+
+    btnPlay.addEventListener('click', () => {
+        divPlay.style.display = "none";
+        divStart.style.display = "block";
+        textBox.focus();
+    })
+
+    textBox.addEventListener("keyup", function(event) {
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        btnNext.click();
+        }
+    });
+
+    //funkcje zmiany ekranu
+    btnNext.addEventListener('click', () => {
+        const userNickname = document.getElementById("nickname").value;
+        if (userNickname.length >= 3) {
+            player.playerName = userNickname;
+            playerOutput.innerText = player.playerName;
+            divStart.style.display = "none";
+            divMenu.style.display = "flex";
+        } else {
+            alert('Name to short!')
+        }
+    })
+
+    btnStart.addEventListener('click', () => {
+        divMenu.style.display = "none";
+        divCategories.style.display = "flex";
+        btnHome.style.display = "flex";
+    })
+
+    btnStartQuiz.addEventListener('click', () => {
+        divCategories.style.display = "none";
+        divQuiz.style.display = "flex";
+        btnHome.style.display = "flex";
+    })
+
+    btnRules.addEventListener('click', () => {
+        divMenu.style.display = "none";
+        divRules.style.display = "flex";
+        btnHome.style.display = "flex";
+    })
+
+    btnHighscores.addEventListener('click', () => {
+        divMenu.style.display = "none";
+        divHighscores.style.display = "flex";
+        btnHome.style.display = "flex";
+    })
+
+    btnMainMenu.addEventListener('click', () => {
+        divHighscores.style.display = "none";
+        divMenu.style.display = "flex";
+    })
+
+    //Powrót do menu
+    btnHome.addEventListener('click', () =>{
+        let activeDiv = document.querySelector('.boxLarge[style*="display: flex;"]');
+        activeDiv.style.display = "none";
+        divMenu.style.display = "flex";
+        btnHome.style.display = "none";
+    })
+
+    //jaki tryb został wybrany
+    let modeSelected
+    for (let i = 0; i < modes.length; i++) {
+        modes[i].addEventListener('click', () => {
+            for (let j = 0; j < modes.length; j++) {
+                modes[j].classList.remove('modeEnabled');
+                modes[j].classList.add('modeDisabled');
+            }
+            modes[i].classList.remove('modeDisabled');
+            modes[i].classList.add('modeEnabled');
+        })
     }
-})
 
-btnStart.addEventListener('click', () => {
-    divMenu.style.display = "none";
-    divCategories.style.display = "block";
-});
+    //Funkcja klik, może się przyda
+    // const cbox = document.querySelectorAll(".answer");
 
-btnHighScores.addEventListener('click', () => {
-    divMenu.style.display = "none";
-    divScores.style.display = "block";
-    let localScores = getLocalScores();
-    let localLp = 1;
-    let globalLp = 1;
-    localScores.forEach((value) => {
-         let li = document.createElement("li");
-         li.appendChild(document.createTextNode(`Num:  ${localLp} Name:  ${value.name} Score:  ${value.score}`));
-        divScoresLocalList.appendChild(li);
-        localLp++;
-     });
-    divLoader.style.display = "block";
-    getGlobalScores().then((data) => {
-        data.forEach((value) => {
-            let li = document.createElement("li");
-            li.appendChild(document.createTextNode(`Num: ${globalLp}  Name: ${value.name} Score: ${value.score}`));
-            divScoresGlobalList.appendChild(li);
-            globalLp++;
-        });
-        divLoader.style.display = "none";
-    })
-    })
+    //  for (let i = 0; i < cbox.length; i++) {
+    //      cbox[i].addEventListener("click", function() {
+    //        console.log('Hello');
+    //      });
+    //  }
 
-    btnHighScoresBack.addEventListener('click', () => {
-        divMenu.style.display = "block";
-        divScores.style.display = "none";
-        divScoresLocalList.innerHTML = '';
-        divScoresGlobalList.innerHTML = '';
+    //Operator stopki
+
+    btnFooter.addEventListener('click', () => {
+        appScreen.classList.toggle('lift')
     })
 
 }
-
-
