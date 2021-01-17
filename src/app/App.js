@@ -1,5 +1,4 @@
 import { player } from "./player.js";
-import { timer } from "./timer.js";
 import {getModeProperties} from './gameMode';
 import { startQuiz, checkAnswer } from "./quizGame.js";
 import {getLocalScores, clearLocalScoreList, saveLocalScores} from  "./localScoreboard"
@@ -72,11 +71,7 @@ export const App = ({options}) => {
     btnStartQuiz.addEventListener('click', () => {
         divCategories.style.display = "none";
         divQuiz.style.display = "flex";
-        timer(player.scoreInfo);
-        // timer(player.correctAnswer);
         startQuiz(modeSelected);
-
-        btnHome.style.display = "flex";
     })
 
     btnRules.addEventListener('click', () => {

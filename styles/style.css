@@ -15,14 +15,8 @@
     --yelow: #ffe81f;
     --enemyPosition: 0%;
     --playerPosition: 0%;
-    --enemyPosition: 10%;
-    --playerPosition: 70%;
-    --mode1: #ffe81f;
-    --mode1s: #ffe81f71;
-    --mode2: #ffe81f;
-    --mode2s: #ffe81f71;
-    --mode3: #ffe81f;
-    --mode3s: #ffe81f71;
+    --enemyPosition: 0%;
+    --playerPosition: 0%;
     --correctAnswer: green;
     --incorrectAnswer: red;
 }
