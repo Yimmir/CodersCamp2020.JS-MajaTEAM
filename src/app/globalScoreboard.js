@@ -1,81 +1,70 @@
-let globalScores = [];
-let ulDivs = [document.querySelector(".rank-global"),
-  document.querySelector(".name-global"),
-  document.querySelector(".time-global")] ;
-const url = 'https://swquizzscoreboard123-default-rtdb.firebaseio.com/scores.json';
+import { decorateScore,compareScores } from './scoreboardService';
 
+const loader = document.getElementById('highScoresLoader');
+let globalScores = [];
+let ulGlobDivs = [document.querySelector('.rank-global'),
+  document.querySelector('.name-global'),
+  document.querySelector('.time-global')];
+const url = 'https://swquizzscoreboard123-default-rtdb.firebaseio.com/scores.json';
 
 /*The function should return already formatted data -> JSON object should be first
  mapped to array of scores*/
 
-
-
-const getGlobalScores = async function() {
-   await fetchData().then(() => {
-     if(globalScores) {
-       globalScores.sort(compareScores);
-       let globalLp = 1;
-       globalScores.forEach((value) => {
-         ulDivs.forEach((value1) => {
-           let li = document.createElement("li");
-           let str = value1.className;
-           switch (str) {
-             case "result rank-global":
-               li.innerHTML = `${globalLp}`;
-               break;
-             case "result name-global":
-               li.innerHTML = `${value.name}`;
-               break;
-             case "result time-global":
-               li.innerHTML = `${value.score}`;
-               break;
-           }
-           value1.appendChild(li)
-         });
-         globalLp++
-       })
-     }
-
-     }
-   );
+const createList = function() {
+  if (globalScores) {
+    globalScores.sort(compareScores);
+    console.log("clicked");
+    let globalLp = 1;
+    globalScores.forEach((value) => {
+      ulGlobDivs.forEach((value1) => {
+        let li = document.createElement('li');
+        let str = value1.className;
+        if (str.includes('rank-global')) {
+          li.innerHTML = `${globalLp}`;
+        } else if (str.includes('name-global')) {
+          li.innerHTML = `${value.name}`;
+        } else {
+          let score = decorateScore(value.score);
+          li.innerHTML = `${score[0]}:${score[1]}`;
+        }
+        value1.appendChild(li);
+      });
+      globalLp++;
+    });
+  }
 };
 
-const saveScoreGlobally = async function(playerName, playerScore) {
-  let body = {name: playerName, score: playerScore};
-  await fetch(url, {
+const saveScoreGlobally = function(playerName, playerScore) {
+  let body = { name: playerName, score: playerScore };
+  fetch(url, {
     method: 'POST',
-    body: JSON.stringify(body)
+    body: JSON.stringify(body),
   })
     .then(response => response.json())
     .then((data) => {
       console.log('SUCCESS: ', data);
     })
     .catch((error) => {
-      console.error('Error: ', error)
+      console.error('Error: ', error);
     });
 };
 
-const fetchData = async function() {
-  await fetch(url)
+const getGlobalScores = function() {
+  loader.style.display = 'block';
+  fetch(url)
     .then(response => response.json())
     .then((data) => {
       globalScores = [];
       for (let obj in data) {
-        globalScores.push(data[obj])
+        globalScores.push(data[obj]);
       }
+      createList();
+      loader.style.display = 'none';
     })
     .catch((error) => {
-      console.error('Error: ', error)
+      console.error('Error: ', error);
     });
 };
-
-const compareScores = function(a, b) {
-  return  a.score - b.score;
-};
-
-const clearGlobalScoreList = function() {
-  ulDivs.forEach(ul => ul.innerHTML ='')
-}
 
 
 /*This functionalities is connected to retrieve global scores from database -> The DB is
@@ -83,4 +72,4 @@ const clearGlobalScoreList = function() {
   json files that you can create as You want without strick restriction of usuall
    API.  */
 
-export {getGlobalScores, saveScoreGlobally, clearGlobalScoreList};
+export { getGlobalScores, saveScoreGlobally, ulGlobDivs };
