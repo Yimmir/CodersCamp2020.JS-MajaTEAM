@@ -6,11 +6,25 @@
     font-size: 2.5vh;
 }
 
+*:focus{
+    outline: none;
+}
+
 /* Deklaracja zmiennych */
 :root {
     --yelow: #ffe81f;
     --enemyPosition: 0%;
     --playerPosition: 0%;
+    --enemyPosition: 10%;
+    --playerPosition: 70%;
+    --mode1: #ffe81f;
+    --mode1s: #ffe81f71;
+    --mode2: #ffe81f;
+    --mode2s: #ffe81f71;
+    --mode3: #ffe81f;
+    --mode3s: #ffe81f71;
+    --correctAnswer: green;
+    --incorrectAnswer: red;
 }
 
 /* Import i deklaracja fontów */
@@ -37,13 +51,32 @@
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
     background-color: black;
     display: flex;
     flex-direction: column;
-    position: relative;
+    height: 100vh;
+    width: 100vw;
 }
+
+body:hover{
+    cursor:default;
+}
+
+#body-wrapper {
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 1s ease-in-out;
+    box-shadow: 0px 1px 7px 4px rgba(0,0,0,0.35);
+}
+
+.lift {
+    transform: translateY(-20%);
+}
+
 
 canvas {
     width: 100%;
@@ -56,6 +89,7 @@ canvas {
 
 header {
     height: 18%;
+    position: relative;
 
 }
 
@@ -63,6 +97,34 @@ header img {
     height: 100%;
     display: block;
     margin: auto;
+}
+
+.home {
+    width: auto;
+    height: 20%;
+    position: absolute;
+    bottom: 20%;
+    right: 73%;
+    display: none;
+    align-items: center;
+}
+
+.home p {
+    font-family: swTheme;
+    color: var(--yelow);
+    margin-bottom: 6%;
+    font-weight: lighter;
+    font-size: 0.8em;
+}
+
+.home img {
+    height: 70%;
+}
+
+.home:hover{
+    transform: scale(1.2);
+    -webkit-filter: drop-shadow(0px 0px 5px #ffe81fbf);
+    filter: drop-shadow(0px 0px 5px #ffe81fbf);
 }
 
 main {
@@ -102,7 +164,7 @@ footer {
     display: block;
 }
 
-.play .button-play {
+.play .button {
     position: absolute;
     top: 50vh;
     left: 50vw;
@@ -123,7 +185,7 @@ footer {
 
 }
 
-.button-play:hover {
+.play .button:hover {
     box-shadow: 0px 0px 15px 10px rgba(255, 232, 31, 0.60);
 }
 
@@ -172,7 +234,7 @@ footer {
     box-shadow: 0px 0px 15px 5px rgba(255, 232, 31, 0.75);
 }
 
-.button-next {
+#button-next, #button-startquiz {
     background-color: transparent;
     color: var(--yelow);
     border: none;
@@ -182,19 +244,18 @@ footer {
     text-shadow: 0px 0px 5px rgba(255, 232, 31, 0.75);
 }
 
-.button-next:hover {
+#button-next:hover, #button-startquiz:hover {
     text-shadow: 0px 0px 15px rgba(255, 232, 31, 0.60);
 }
 
 /* Menu główne  */
 
 .menu-wrapper {
-    /* height: 98%; */
     align-self: flex-start;
-    margin-bottom: 2%;
     width: 87%;
+    max-width: 800px;
     border: 5px solid var(--yelow);
-    box-shadow: 0px 0px 10px 3px rgba(255,232,31,0.50);
+    box-shadow: 0px 0px 10px 3px #ffe81f80;
     background-color: rgba(0, 0, 0, 0.65);
     display: flex;
     flex-direction: column;
@@ -210,7 +271,7 @@ footer {
     text-align: justify;
     text-align-last: center;
     width: 90%;
-    margin: 5% 0 10%;
+    margin: 10px 0 20px;
 }
 
 h2 p {
@@ -219,8 +280,9 @@ h2 p {
     color: white;
 }
 
-.button {
+.menu-wrapper .button {
     background-color: var(--yelow);
+    border: none;
     width: 90%;
     height: auto;
     text-align: center;
@@ -231,7 +293,7 @@ h2 p {
     margin: 5px 0;
 }
 
-.button:hover{
+.menu-wrapper .button:hover{
     background-color: white;
     box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.5);
 }
@@ -257,13 +319,28 @@ h2 p {
 }
 
 .mode {
-    background-color: var(--yelow);
     text-align: center;
     border-radius: 5px;
     margin: 2% 0;
     height: 31%;
     display: flex;
     flex-direction: column;
+}
+
+.modeDisabled {
+    background-color: var(--yelow);
+}
+
+.modeDisabled:hover {
+    box-shadow: 0px 0px 10px 3px #ffe81f75;
+}
+
+.modeEnabled {
+    background-color: white;
+}
+
+.modeEnabled:hover {
+    box-shadow: 0px 0px 10px 3px #ffffff75;
 }
 
 .mode p {
@@ -293,6 +370,36 @@ h2 p {
     font-size: 0.88em;
 }
 
+label {
+    font-family: swTheme;
+    color: var(--yelow);
+    font-weight: normal;
+    letter-spacing: 2px;
+    font-size: 1.2em;
+}
+
+.div-level {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+select {
+    background-color: black;
+    color: white;
+    padding: .2em;
+    margin-left: .5em;
+    border: var(--yelow) solid .3em;
+    box-shadow: 0px 0px 10px 3px rgba(255,232,31,0.50);
+    -moz-appearance:none;
+}
+
+select > option {
+    -moz-appearance:none;
+    background-color: black;
+    color: white;
+}
+
 #button-startquiz {
     font-size: 2em;
 }
@@ -301,7 +408,7 @@ h2 p {
 
 .boxLarge {
     display: none;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     height: 100%;
     width: 100%;
@@ -311,6 +418,7 @@ h2 p {
     height: 98%;
     margin-bottom: 2%;
     width: 87%;
+    max-width: 1000px;
     border: 5px solid var(--yelow);
     /* border-radius: 5px; */
     box-shadow: 0px 0px 10px 3px rgba(255,232,31,0.50);
@@ -324,7 +432,7 @@ h2 p {
 #timer-wrapper {
     height: 13%;
     width: 90%;
-    margin: auto;
+    margin: 2% auto auto;
     display: grid;
     grid:20% 80% / 12.5% 25% 25% 25% 12.5%;
     justify-items: center;
@@ -421,10 +529,12 @@ h2 p {
 
 #quiz-wrapper {
     height: 84%;
+    width: 90%;
     margin: 1% 5% 2%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 1em;
 }
 
 #quizImage-wrapper {
@@ -434,6 +544,8 @@ h2 p {
 #quizImage {
     height: 100%;
     border: 5px solid var(--yelow);
+    object-fit: cover;
+    object-position: top;
 }   
 
 #quizQuestions-wrapper{
@@ -474,9 +586,17 @@ h2 p {
     justify-content: center;
 }
 
-.answer:hover{
+.answer:not(.no-hover):hover {     
     background-color: white;
     box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.5);
+}
+
+.correct {
+    background-color: var(--correctAnswer);
+}
+
+.incorrect {
+  background-color: var(--incorrectAnswer);
 }
 
 /* Zasady */
@@ -484,6 +604,7 @@ h2 p {
 #rules-wrapper {
     height: 100%;
     width: 98%;
+    padding: 0 5%;
     display: grid;
     grid-template-areas: 
     "header"
@@ -508,6 +629,7 @@ h2 p {
 }
 
 .headers {
+    width: 100%;
     font-family: swTheme, sans-serif;
     font-weight: normal;
     letter-spacing: 2px;
@@ -520,7 +642,6 @@ h2 p {
 }
 
 .rulesContent {
-    width: 90%;
     justify-self: center;
 }
 
@@ -554,15 +675,16 @@ h2 p {
 #rules3 {
     grid-area: part3;
     padding-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Tablica wyników */
 
-#div-highscores .module-wrapper {
+.highScores .module-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
     position: absolute;
     height: 70vh;
     width: 95vw;
@@ -574,47 +696,56 @@ h2 p {
     padding: 6px;
 }
 
-#div-highscores .module-wrapper>p {
+.highScores .module-wrapper>p {
     font-size: 24px;
     color: yellow;
     font-weight: bold;
 }
 
-#div-highscores .module-wrapper .label {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+.highScores .module-wrapper .label {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr;
+    grid-gap: 1rem;
+    justify-content: center;
+    align-content: center;
     font-size: 18px;
 }
 
-#div-highscores .module-wrapper .label p {
+.highScores .module-wrapper .label p {
     display: inline-block;
+    margin: 1rem 1rem;
     width: 30%;
     text-align: center;
     color: yellow;
     font-weight: bold;
 }
 
-#div-highscores .module-wrapper .result {
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
-    background-color: yellow;
+.highScores .module-wrapper .scores-grid {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr;
+    grid-gap: 1rem;
+}
+
+.highScores .module-wrapper .scores-grid.scores-grid-global {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.highScores .module-wrapper .scores-grid ul li{
+    background-color: #ffe81f;
     color: black;
-    border-radius: 8px;
-    padding-left: 10px;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    font-weight: bolder;
+    border-radius: 10px;
+}
+.highScores .module-wrapper .scores-grid ul li p{
+    text-align: center;
 }
 
-#div-highscores .module-wrapper .result p {
-    display: inline-block;
-}
-
-#div-highscores .module-wrapper .result .time {
-    padding-right: 10px;
-    float: right
-}
-
-#div-highscores .module-wrapper button {
+.highScores .module-wrapper button {
     width: 100%;
     height: 40px;
     border: none;
@@ -623,4 +754,190 @@ h2 p {
     font-size: 30px;
     line-height: 30px;
     text-transform: uppercase;
+}
+
+.highScores .scores-grid.scores-grid-global::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+/* Track */
+.highScores .scores-grid.scores-grid-global::-webkit-scrollbar-track {
+    background: inherit;
+}
+
+/* Handle */
+.highScores .scores-grid.scores-grid-global::-webkit-scrollbar-thumb {
+    background: darkslategray;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+.highScores .scoresListGlobal::-webkit-scrollbar-thumb:hover {
+    background: white;
+}
+/* Ustawienia hoverów */
+
+.button:hover{
+    cursor: pointer;
+}
+
+/* Credits */
+
+.credits {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    background-color: #303336;
+    height: 20vh;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+    "creditsText creditsText"
+    "1 2";
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    padding: 10px 5%;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
+    gap: 1% 10px;
+}
+
+#creditsText {
+    grid-area: creditsText;
+    text-align: justify;
+    text-align-last: center;
+    font-family: credits, sans-serif;
+    font-size: 0.8em;
+    color: var(--yelow);
+}
+
+#credits a {
+    height: 100%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+#camp {
+    height: 25%;
+}
+
+#camp:hover{
+    -webkit-filter: drop-shadow(0px 0px 5px #fdc640);
+    filter: drop-shadow(0px 0px 5px #fdc640);
+}
+
+#github {
+    height: 35%;
+    margin-bottom: 3%;
+}
+
+#github:hover{
+    -webkit-filter: drop-shadow(0px 0px 5px #0287cf);
+    filter: drop-shadow(0px 0px 5px #0287cf);
+}
+
+/*Utilities*/
+
+.loader {
+    display: none;
+    border: 16px solid black;
+    border-top: 16px solid yellow;
+    border-bottom: 16px solid yellow;
+    border-radius: 50%;
+    margin:  2rem auto;
+    width: 120px;
+    height: 120px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* RWD */
+
+/* Dla trybu landscape */
+
+@media (orientation: landscape) {
+    .lift {
+        transform: translateY(-15%);
+    }
+    .home {
+        height: 43%;
+    }
+    .home p {
+        font-size: 1.5em;
+    }
+    #div-categories .module-wrapper {
+        height: 80%;
+    }
+    #div-categories .mode-wrapper {
+        flex-direction: row;
+        width: 95%;
+    }
+    .mode {
+        height: 70%;
+        font-size: 1.25em;
+        margin: 2% 1%;
+    }
+    .description {
+        font-size: 1em;
+    }
+    #quiz-wrapper {
+        flex-direction: row;
+    }
+    #quizQuestions-wrapper{
+        align-self: center;
+        height: 70%;
+        margin-left: 2%;
+        margin-top: 0;
+    }
+    #quizImage-wrapper {
+        height: 70%;
+    }
+    #timer-wrapper {
+        height: 25%;
+    }
+    #questionText {
+        font-size: 1.4em;
+    }
+    .answer span{
+        font-size: 1em;
+    }
+    #rules-wrapper {
+        grid-template-areas: 
+        "header header"
+        "intro intro"
+        "part1 part3"
+        "part2 part3";
+        grid-template-rows: 10% auto;
+        font-size: 1.2em;
+        padding: 0 1% 1%;
+        gap: 1% 2%;
+    }
+    #rules-wrapper p {
+        font-size: 0.9em;
+    }
+    #rules3 {
+        padding: 0;
+    }
+    #rules3 img {
+        width: 80%;
+    }
+    #credits {
+        height: 15vh;
+        grid-template-areas:
+        "1 creditsText 2";
+        gap: 0 5%;
+        grid-template-columns: 2fr 3fr 2fr;
+        grid-template-rows: 100%;
+    }
+    #creditsText {
+        font-size: max(0.9em, 12px);
+    }
 }
