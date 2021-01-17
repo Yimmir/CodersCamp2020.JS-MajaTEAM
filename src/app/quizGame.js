@@ -32,12 +32,11 @@ const displayQuestion = async(mode, id) => {
     answer.innerText = question.answers[index].content;
     if(question.answers[index].isCorrect) answer.dataset.type = "correct";
     else answer.dataset.type = "incorrect";
-    answer.addEventListener('click', checkAnswer.bind(null, mode));
     possiblityToAnswer = true;
   });
 }
 
-const checkAnswer = (mode, e) => {
+export const checkAnswer = (mode, e) => {
   let classToApply;
   const noHoverClass = 'no-hover';
   if (!possiblityToAnswer) return;

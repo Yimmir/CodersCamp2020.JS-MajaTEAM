@@ -1,6 +1,6 @@
 import { player } from './player.js';
 import { getModeProperties } from './gameMode';
-import { startQuiz } from './quizGame.js';
+import { startQuiz, checkAnswer } from './quizGame';
 import { getLocalScores, saveLocalScores } from './localScoreboard';
 import { getGlobalScores} from './globalScoreboard';
 import { clearScoresList } from './scoreboardService';
@@ -120,14 +120,11 @@ export const App = ({ options }) => {
     });
   }
 
-  //Funkcja klik, może się przyda
-  // const cbox = document.querySelectorAll(".answer");
-
-  //  for (let i = 0; i < cbox.length; i++) {
-  //      cbox[i].addEventListener("click", function() {
-  //        console.log('Hello');
-  //      });
-  //  }
+    //Funkcja klik, może się przyda
+    const cbox = document.querySelectorAll(".answer");
+     for (let i = 0; i < cbox.length; i++) {
+         cbox[i].addEventListener("click", (e) => checkAnswer(modeSelected, e));
+     }
 
   //Operator stopki
 
