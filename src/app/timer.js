@@ -1,13 +1,12 @@
-const timer = (score) => {
-    const howManyMinutes = 2;
-    let time = howManyMinutes * 60;
+import {player} from './player';
+const timer = (time) => {
     let position = 0;
     const step = 100 / time;
     const ships = document.querySelector(':root');
-
     const interval = setInterval(countdown, 1000);
 
     function countdown() {
+        let score = player.correctAnswersInfo;
         ships.style.setProperty('--playerPosition', `${score * 5}%`);
         ships.style.setProperty('--enemyPosition', `${position}%`);
 
