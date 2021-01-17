@@ -25,11 +25,11 @@
         </div>
     </header>
     <main>
-        <div id="div-play" class="play">
+        <div id="div-play" class="button-play play boxLarge">
             <button id="button-play" class="button">play</button>
         </div>
 
-        <div id="div-start" class="start">
+        <div id="div-start" class="start boxLarge">
             <div class="input-wrapper" id="nickname-form">
                 <label for="nickname">enter your name</label>
                 <input type="text" id="nickname" name="nickname" maxlength="15" autocomplete="off" spellcheck="false" autofocus>
@@ -40,9 +40,9 @@
         <div id="div-menu" class="boxLarge">
             <div class="menu-wrapper">
                 <h2>May the force be with you <p id="playerPlaceholder">EXAMPLE</p>. Test your Star Wars knowledge and defeat the empire!</h2>
-                <button id="button-start" class="button">start</button>
-                <button id="button-rules" class="button">rules</button>
-                <button id="button-highscores" class="button">highscores</button>
+                <button id="button-start" class="button-start menu-button button">start</button>
+                <button id="button-rules" class="menu-button button">rules</button>
+                <button id="button-highscores" class="button-highScores menu-button button">highscores</button>
             </div>
         </div>
 
@@ -116,6 +116,36 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div id="div-win" class="boxLarge end-screen">
+            <div id="winText" class="end-text">
+                <p>congratulations</p>
+                <h3>you won!</h3>
+            </div>
+            <div id="winTime" class="end-time">
+                <p>your time</p>
+                <p id="playerTime" class="player-time"></p>
+            </div>
+            <div id="winMenu" class="end-menu">
+                <button id="endWinPlayAgain" class="menu-button button button-start">play again</button>
+                <button id="endWinHighScores" class="menu-button button button-highScores">highscores</button>
+                <button id="endWinMainMenu" class="menu-button button button-play">new player</button>     
+            </div>
+        </div>
+        <div id="div-lose" class="boxLarge end-screen">
+            <div id="loseText" class="end-text">
+                <p>bad luck</p>
+                <h3>you lost!</h3>
+            </div>
+            <div id="loseTime" class="end-time">
+                <p>your score</p>
+                <p id="playerPoints" class="player-time">13 points</p>
+            </div>
+            <div id="loseMenu" class="end-menu">
+                <button id="endLosePlayAgain" class="menu-button button button-start">play again</button>
+                <button id="endLoseHighScores" class="menu-button button button-highScores">highscores</button>
+                <button id="endLoseMainMenu" class="menu-button button button-play">new player</button>     
             </div>
         </div>
         <div id="div-rules" class= boxLarge>

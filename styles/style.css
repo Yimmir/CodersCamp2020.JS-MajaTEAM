@@ -15,8 +15,6 @@
     --yelow: #ffe81f;
     --enemyPosition: 0%;
     --playerPosition: 0%;
-    --enemyPosition: 0%;
-    --playerPosition: 0%;
     --correctAnswer: green;
     --incorrectAnswer: red;
 }
@@ -154,9 +152,6 @@ footer {
 }
 
 /* ekran startowy */
-.play {
-    display: block;
-}
 
 .play .button {
     position: absolute;
@@ -166,7 +161,6 @@ footer {
     height: 75px;
     width: 270px;
     background-color: var(--yelow);
-    /* test var yellow */
     border: none;
     border-radius: 5px;
     font-size: 40px;
@@ -184,10 +178,6 @@ footer {
 }
 
 /* Nazwa użytkownika */
-.start {
-    display: none;
-}
-
 .start .input-wrapper {
 
     display: flex;
@@ -245,7 +235,6 @@ footer {
 /* Menu główne  */
 
 .menu-wrapper {
-    align-self: flex-start;
     width: 87%;
     max-width: 800px;
     border: 5px solid var(--yelow);
@@ -274,20 +263,20 @@ h2 p {
     color: white;
 }
 
-.menu-wrapper .button {
+.menu-button {
     background-color: var(--yelow);
     border: none;
     width: 90%;
     height: auto;
     text-align: center;
     font-family: swTheme;
-    font-size: 32px;
+    font-size: 2em;
     padding-bottom: 5px;
     border-radius: 5px;
     margin: 5px 0;
 }
 
-.menu-wrapper .button:hover{
+.menu-button:hover{
     background-color: white;
     box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.5);
 }
@@ -402,8 +391,8 @@ select > option {
 
 .boxLarge {
     display: none;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     height: 100%;
     width: 100%;
 }
@@ -752,6 +741,52 @@ select > option {
 
 .highScores .scores-grid.scores-grid-global::-webkit-scrollbar {
     width: 0.5rem;
+}
+
+/* Ekran wygranej */
+
+.end-screen {
+    justify-content: center;
+    text-align: center;
+    color: var(--yelow);
+    padding: 0 5%;
+    
+}
+
+.end-screen p {
+    font-family: swTheme, sans-serif;
+    font-size: 1.5em;
+}
+
+.end-screen h3 {
+    font-family: swTheme, sans-serif;
+    font-size: 2.8em;
+    font-weight: normal;
+}
+
+.player-time {
+    color: white;
+    border-top: var(--yelow) solid 3px;
+    margin-top: 5%;
+}
+
+.end-menu {
+    margin-top: 5%;
+}
+
+.end-time, .end-menu, .end-text{ 
+    opacity: 0%;
+}
+
+.visible-block {
+    visibility: visble;
+    animation: fadeIn 2s ease-out 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
 }
 
 /* Track */

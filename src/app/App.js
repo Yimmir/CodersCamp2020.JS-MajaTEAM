@@ -3,12 +3,12 @@ import {getModeProperties} from './gameMode';
 import { startQuiz, checkAnswer } from "./quizGame.js";
 import {getLocalScores, clearLocalScoreList, saveLocalScores} from  "./localScoreboard"
 import {getGlobalScores, clearGlobalScoreList} from './globalScoreboard';
+import { doc } from "prettier";
 
 export const App = ({options}) => {
 
     //deklaracje divów
     const divStart = document.getElementById("div-start");
-    const divPlay = document.getElementById("div-play");
     const divMenu = document.getElementById("div-menu");
     const divCategories = document.getElementById("div-categories");
     const divQuiz = document.getElementById("div-quiz");
@@ -17,16 +17,15 @@ export const App = ({options}) => {
     const appScreen = document.getElementById("body-wrapper");
 
     //deklaracje przycisków
-    const btnPlay = document.getElementById("button-play");
+    const btnPlay = document.querySelectorAll(".button-play");
     const btnNext = document.getElementById("button-next");
-    const btnStart = document.getElementById("button-start");
+    const btnStart = document.querySelectorAll(".button-start");
     const btnStartQuiz = document.getElementById("button-startquiz");
-    const btnMainMenu = document.getElementById("button-mainmenu");
     const btnRules = document.getElementById("button-rules");
-    const btnHighscores = document.getElementById("button-highscores");
+    const btnHighscores = document.querySelectorAll(".button-highScores");
     const btnHome = document.getElementById("home");
     const btnFooter = document.getElementById("footer");
-    
+
     //deklaracje wyboru trybu
     const modes = document.querySelectorAll(".mode")
 
@@ -35,11 +34,15 @@ export const App = ({options}) => {
     const textBox = document.getElementById("nickname");
     const loader = document.getElementById("highScoresLoader");
 
-    btnPlay.addEventListener('click', () => {
-        divPlay.style.display = "none";
-        divStart.style.display = "block";
-        textBox.focus();
-    })
+    //funkcje zmiany ekranu
+    for (let i = 0; i < btnPlay.length; i++) {
+        btnPlay[i].addEventListener('click', () => {
+            let activeDiv = document.querySelector('.boxLarge[style*="display: flex;"]');
+            activeDiv.style.display = "none";
+            divStart.style.display = "flex";
+            textBox.focus();
+        })       
+    }
 
     textBox.addEventListener("keyup", function(event) {
         // Number 13 is the "Enter" key on the keyboard
@@ -49,24 +52,26 @@ export const App = ({options}) => {
         }
     });
 
-    //funkcje zmiany ekranu
     btnNext.addEventListener('click', () => {
         const userNickname = document.getElementById("nickname").value;
         if (userNickname.length >= 3) {
             player.playerName = userNickname;
             playerOutput.innerText = player.playerName;
-            divStart.style.display = "none";
+            let activeDiv = document.querySelector('.boxLarge[style*="display: flex;"]');
+            activeDiv.style.display = "none";
             divMenu.style.display = "flex";
         } else {
             alert('Name to short!')
         }
     })
-
-    btnStart.addEventListener('click', () => {
-        divMenu.style.display = "none";
-        divCategories.style.display = "flex";
-        btnHome.style.display = "flex";
-    })
+    for (let i = 0; i < btnStart.length; i++) {
+        btnStart[i].addEventListener('click', () => {
+            let activeDiv = document.querySelector('.boxLarge[style*="display: flex;"]');
+            activeDiv.style.display = "none";
+            divCategories.style.display = "flex";
+            btnHome.style.display = "flex";
+        })
+    }
 
     btnStartQuiz.addEventListener('click', () => {
         divCategories.style.display = "none";
@@ -79,22 +84,23 @@ export const App = ({options}) => {
         divRules.style.display = "flex";
         btnHome.style.display = "flex";
     })
-
-    btnHighscores.addEventListener('click', () => {
-        loader.style.display = 'block';
-        divMenu.style.display = "none";
-        divHighscores.style.display = "flex";
-        btnHome.style.display = "flex";
-        saveLocalScores("Mateusz", '80');
-        saveLocalScores("Dariusz", '90');
-        saveLocalScores("Adam", '100');
-        getLocalScores();
-        getGlobalScores().then(() => {
-            loader.style.display = 'none';
+    for (let i = 0; i < btnHighscores.length; i++) {
+        btnHighscores[i].addEventListener('click', () => {
+            loader.style.display = 'block';
+            let activeDiv = document.querySelector('.boxLarge[style*="display: flex;"]');
+            activeDiv.style.display = "none";
+            divHighscores.style.display = "flex";
+            btnHome.style.display = "flex";
+            saveLocalScores("Mateusz", '80');
+            saveLocalScores("Dariusz", '90');
+            saveLocalScores("Adam", '100');
+            getLocalScores();
+            getGlobalScores().then(() => {
+                loader.style.display = 'none';
+            });
+            localStorage.clear();
         });
-        localStorage.clear();
-    });
-
+    }
 
     //Powrót do menu
     btnHome.addEventListener('click', () =>{
