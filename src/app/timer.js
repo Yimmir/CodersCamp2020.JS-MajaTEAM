@@ -33,8 +33,8 @@ const timer = (timeSelected) => {
                 time--;
             } else if (score >= 20) {
                 clearInterval(interval);
-                let timeLeft = timeSelected - time;
-                playerWon(timeLeft);
+                player.scoreInfo = timeSelected - time;
+                playerWon(player.scoreInfo);
             } else {
                 clearInterval(interval);
                 playerLost(score);
