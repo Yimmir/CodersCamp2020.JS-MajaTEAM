@@ -1,6 +1,6 @@
 import { player } from "./player.js";
 import {getModeProperties} from './gameMode';
-import { startQuiz } from "./quizGame.js";
+import { startQuiz, checkAnswer } from "./quizGame.js";
 import {getLocalScores, clearLocalScoreList, saveLocalScores} from  "./localScoreboard"
 import {getGlobalScores, clearGlobalScoreList} from './globalScoreboard';
 
@@ -123,13 +123,10 @@ export const App = ({options}) => {
     }
 
     //Funkcja klik, może się przyda
-    // const cbox = document.querySelectorAll(".answer");
-
-    //  for (let i = 0; i < cbox.length; i++) {
-    //      cbox[i].addEventListener("click", function() {
-    //        console.log('Hello');
-    //      });
-    //  }
+    const cbox = document.querySelectorAll(".answer");
+     for (let i = 0; i < cbox.length; i++) {
+         cbox[i].addEventListener("click", (e) => checkAnswer(modeSelected, e));
+     }
 
     //Operator stopki
 
