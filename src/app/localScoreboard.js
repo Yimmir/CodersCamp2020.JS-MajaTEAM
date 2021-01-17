@@ -1,5 +1,7 @@
+import {compareScores, decorateScore} from './scoreboardService';
+
 let localScores = [];
-let ulDivs = [document.querySelector(".rank-local"),
+let ulLocDivs = [document.querySelector(".rank-local"),
   document.querySelector(".name-local"),
   document.querySelector(".time-local")] ;
 
@@ -8,7 +10,7 @@ const getLocalScores = function() {
   if(localScores) {
     let localLp = 1;
     localScores.forEach((value) => {
-      ulDivs.forEach((value1) => {
+      ulLocDivs.forEach((value1) => {
         let li = document.createElement("li");
         let str = value1.className;
         if (str.includes("rank-local")) {
@@ -37,27 +39,9 @@ const sortLocalScores = function(scores) {
   return scores.sort(compareScores).slice(0,3);
 };
 
-const compareScores = function(a, b) {
-  return  a.score - b.score;
-};
-
-const clearLocalScoreList = function() {
-  ulDivs.forEach(ul => ul.innerHTML ='')
-};
-
-const decorateScore = function(score) {
-  if (score >= 60) {
-    let x = Math.floor(score/60);
-    let y = score%60;
-    return y < 10 ? [x, '00'] : [x, y]
-  } else {
-    return  score < 10 ? [0, '00'] : [0, score]
-  }
-};
-
  /*getLocalSores is a function to retrieve the data from LocalStorage and
  saveLocalScores is function to save the last score to LocalStorage and compare to
  the others */
 
-export {getLocalScores, saveLocalScores, clearLocalScoreList, decorateScore};
+export {getLocalScores, saveLocalScores, ulLocDivs};
 
