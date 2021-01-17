@@ -1,5 +1,7 @@
+import {compareScores, decorateScore} from './scoreboardService';
+
 let localScores = [];
-let ulDivs = [document.querySelector(".rank-local"),
+let ulLocDivs = [document.querySelector(".rank-local"),
   document.querySelector(".name-local"),
   document.querySelector(".time-local")] ;
 
@@ -8,19 +10,16 @@ const getLocalScores = function() {
   if(localScores) {
     let localLp = 1;
     localScores.forEach((value) => {
-      ulDivs.forEach((value1) => {
+      ulLocDivs.forEach((value1) => {
         let li = document.createElement("li");
         let str = value1.className;
-        switch (str) {
-          case "result rank-local":
-            li.innerHTML = `${localLp}`;
-            break;
-          case "result name-local":
-            li.innerHTML = `${value.name}`;
-            break;
-          case "result time-local":
-            li.innerHTML = `${value.score}`;
-            break;
+        if (str.includes("rank-local")) {
+          li.innerHTML = `${localLp}`;
+        } else if (str.includes("name-local")) {
+          li.innerHTML = `${value.name}`;
+        } else {
+          let score = decorateScore(value.score);
+          li.innerHTML = `${score[0]}:${score[1]}`;
         }
         value1.appendChild(li)
       });
@@ -40,17 +39,9 @@ const sortLocalScores = function(scores) {
   return scores.sort(compareScores).slice(0,3);
 };
 
-const compareScores = function(a, b) {
-  return  a.score - b.score;
-};
-
-const clearLocalScoreList = function() {
-  ulDivs.forEach(ul => ul.innerHTML ='')
-};
-
  /*getLocalSores is a function to retrieve the data from LocalStorage and
  saveLocalScores is function to save the last score to LocalStorage and compare to
  the others */
 
-export {getLocalScores, saveLocalScores, clearLocalScoreList};
+export {getLocalScores, saveLocalScores, ulLocDivs};
 
