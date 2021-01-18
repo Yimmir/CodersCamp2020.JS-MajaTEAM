@@ -1,4 +1,6 @@
 import {player} from './player';
+import {saveScores, decorateScore} from './scoreboardService';
+
 const timer = (timeSelected) => {
     let position = 0;
     let time = timeSelected
@@ -34,6 +36,7 @@ const timer = (timeSelected) => {
             } else if (score >= 20) {
                 clearInterval(interval);
                 player.scoreInfo = timeSelected - time;
+                saveScores(player.playerName, player.scoreInfo);
                 playerWon(player.scoreInfo);
             } else {
                 clearInterval(interval);
@@ -50,7 +53,9 @@ const timer = (timeSelected) => {
     function playerWon (playerTime) {
         divQuiz.style.display = "none";
         btnHome.style.display = "none";
-        timeOutput.innerText = `0 : ${playerTime} sec`;
+        let score = decorateScore(playerTime);
+        timeOutput.innerText = `${score[0]}:${score[1]}`;
+        //timeOutput.innerText = `${decorateScore(playerTime)}`;
         divWin.style.display = "flex"
         winText.classList.add("visible-block");
         setTimeout(() => { winTime.classList.add("visible-block")}, 3000);
