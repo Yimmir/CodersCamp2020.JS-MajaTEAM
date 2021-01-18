@@ -1,5 +1,5 @@
-import {ulGlobDivs} from './globalScoreboard';
-import {ulLocDivs} from './localScoreboard';
+import {ulGlobDivs, saveGlobalSCores} from './globalScoreboard';
+import {ulLocDivs,saveLocalScores} from './localScoreboard';
 
 const compareScores = function(a, b) {
   return  a.score - b.score;
@@ -20,4 +20,9 @@ const decorateScore = function(score) {
   }
 };
 
-export {compareScores, clearScoresList, decorateScore}
+const saveScores = function(playerName, playerScore) {
+  saveLocalScores(playerName,playerScore);
+  saveGlobalSCores(playerName,playerScore)
+};
+
+export {compareScores, clearScoresList, decorateScore,saveScores}

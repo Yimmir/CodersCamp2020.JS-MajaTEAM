@@ -1,7 +1,7 @@
 import { player } from './player.js';
 import { getModeProperties } from './gameMode';
 import { startQuiz, checkAnswer } from './quizGame';
-import { getLocalScores, saveLocalScores } from './localScoreboard';
+import { getLocalScores } from './localScoreboard';
 import { getGlobalScores} from './globalScoreboard';
 import { clearScoresList } from './scoreboardService';
 
@@ -93,12 +93,8 @@ export const App = ({ options }) => {
           activeDiv.style.display = "none";
           divHighscores.style.display = "flex";
           btnHome.style.display = "flex";
-          saveLocalScores("Mateusz", '80');
-          saveLocalScores("Dariusz", '90');
-          saveLocalScores("Adam", '100');
           getLocalScores();
           getGlobalScores();
-          localStorage.clear();
       });
   }
 
