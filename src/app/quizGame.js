@@ -17,6 +17,9 @@ export const startQuiz = (mode) => {
   availableQuestionsIDs = [...mode.availableIDs];
   getQuestion(mode);
   timer(playTime);
+  for (let i = 0; i < answerElements; i++) {
+    answerElements[i].classList.remove('correct','incorrect');
+  }
   // timer(player.correctAnswer);
 
 }
