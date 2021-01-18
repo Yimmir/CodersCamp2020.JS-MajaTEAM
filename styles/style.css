@@ -775,18 +775,17 @@ select > option {
 }
 
 .end-time, .end-menu, .end-text{ 
-    opacity: 0%;
+    opacity: 0;
 }
 
 .visible-block {
-    visibility: visble;
     animation: fadeIn 2s ease-out 1;
     animation-fill-mode: forwards;
 }
 
 @keyframes fadeIn {
-    from {opacity: 0%;}
-    to {opacity: 100%;}
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 /* Track */
@@ -906,7 +905,7 @@ select > option {
 
 .alert-box-visible {
     display: block;
-    opacity: 100%;
+    opacity: 1;
     animation: fadeIn 2s ease-out 1 1s reverse;
     animation-fill-mode: forwards;
 }
