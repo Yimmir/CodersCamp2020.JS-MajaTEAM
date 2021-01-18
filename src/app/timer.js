@@ -54,7 +54,7 @@ const timer = (timeSelected) => {
         divQuiz.style.display = "none";
         btnHome.style.display = "none";
         let score = decorateScore(playerTime);
-        timeOutput.innerText = `${score[0]}:${score[1]}`;
+        timeOutput.innerText = `${score[0]} : ${score[1]} sec`;
         //timeOutput.innerText = `${decorateScore(playerTime)}`;
         divWin.style.display = "flex"
         winText.classList.add("visible-block");
