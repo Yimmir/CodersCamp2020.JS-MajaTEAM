@@ -102,7 +102,7 @@ header img {
 }
 
 .home p {
-    font-family: swTheme;
+    font-family: swTheme, sans-serif;
     color: var(--yelow);
     margin-bottom: 6%;
     font-weight: lighter;
@@ -269,7 +269,7 @@ h2 p {
     width: 90%;
     height: auto;
     text-align: center;
-    font-family: swTheme;
+    font-family: swTheme, sans-serif;
     font-size: 2em;
     padding-bottom: 5px;
     border-radius: 5px;
@@ -284,7 +284,7 @@ h2 p {
 /* Wybór trybu quizu */
 
 #modeTitle {
-    font-family: swTheme;
+    font-family: swTheme, sans-serif;
     color: var(--yelow);
     font-weight: normal;
     letter-spacing: 2px;
@@ -327,7 +327,7 @@ h2 p {
 }
 
 .mode p {
-    font-family: swTheme;
+    font-family: swTheme, sans-serif;
     font-weight: normal;
     padding-bottom: 0;
     font-size: 1.5em;
@@ -354,7 +354,7 @@ h2 p {
 }
 
 label {
-    font-family: swTheme;
+    font-family: swTheme, sans-serif;
     color: var(--yelow);
     font-weight: normal;
     letter-spacing: 2px;
@@ -403,7 +403,6 @@ select > option {
     width: 87%;
     max-width: 1000px;
     border: 5px solid var(--yelow);
-    /* border-radius: 5px; */
     box-shadow: 0px 0px 10px 3px rgba(255,232,31,0.50);
     background-color: rgba(0, 0, 0, 0.65);
     display: flex;
@@ -541,7 +540,7 @@ select > option {
 }
 
 #questionText {
-    font-family: swTheme;
+    font-family: swTheme, sans-serif;
     font-size: 1em;
     color: var(--yelow);
 }
@@ -885,6 +884,42 @@ select > option {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.alert-box {
+    position: absolute;
+    width: 80%;
+    max-width: 400px;
+    border: 3px solid white;
+    box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.9);
+    font-family: swText, sans-serif;
+    font-weight: bold;
+    color: var(--yelow);
+    text-align: center;
+    font-size: max(1em, 15px);
+    display: none;
+    opacity: 0;
+    padding: 2%;
+}
+
+.alert-box-visible {
+    display: block;
+    opacity: 100%;
+    animation: fadeIn 2s ease-out 1 1s reverse;
+    animation-fill-mode: forwards;
+}
+
+.alert-name {
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.alert-mode {
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 

@@ -33,6 +33,9 @@ export const App = ({ options }) => {
   const playerOutput = document.getElementById("playerPlaceholder");
   const textBox = document.getElementById("nickname");
   const loader = document.getElementById("highScoresLoader");
+  const alertName = document.getElementById("alertName");
+  const alertMode = document.getElementById("alertMode");
+  let alertHider;
 
   //funkcje zmiany ekranu
   for (let i = 0; i < btnPlay.length; i++) {
@@ -54,14 +57,20 @@ export const App = ({ options }) => {
 
   btnNext.addEventListener('click', () => {
       const userNickname = document.getElementById("nickname").value;
+      clearTimeout(alertHider);
       if (userNickname.length >= 3) {
           player.playerName = userNickname;
           playerOutput.innerText = player.playerName;
           let activeDiv = document.querySelector('.boxLarge[style*="display: flex;"]');
           activeDiv.style.display = "none";
+          alertName.classList.remove("alert-box-visible");
           divMenu.style.display = "flex";
       } else {
-          alert('Name to short!')
+          alertName.classList.remove("alert-box-visible");
+          setTimeout(() => {
+            alertName.classList.add("alert-box-visible");    
+          }, 1);
+          alertHider = setTimeout(function(){alertName.classList.remove("alert-box-visible");}, 3000);
       }
   })
 
@@ -75,9 +84,19 @@ export const App = ({ options }) => {
   }
 
   btnStartQuiz.addEventListener('click', () => {
-      divCategories.style.display = "none";
-      divQuiz.style.display = "flex";
-      startQuiz(modeSelected);
+    clearTimeout(alertHider);
+      if (modeSelected) {
+        divCategories.style.display = "none";
+        alertMode.classList.remove("alert-box-visible");
+        divQuiz.style.display = "flex";
+        startQuiz(modeSelected);
+       } else {
+        alertMode.classList.remove("alert-box-visible");
+        setTimeout(() => {
+          alertMode.classList.add("alert-box-visible");    
+        }, 1);
+        alertHider = setTimeout(function(){alertMode.classList.remove("alert-box-visible");}, 3000);
+       }
   })
 
   btnRules.addEventListener('click', () => {
