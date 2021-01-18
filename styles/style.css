@@ -541,6 +541,7 @@ select > option {
 
 #questionText {
     font-family: swTheme, sans-serif;
+    text-align: center;
     font-size: 1em;
     color: var(--yelow);
 }
@@ -561,7 +562,7 @@ select > option {
     text-align: center;
     font-family: swText;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: max(1em, 20px);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -954,6 +955,7 @@ select > option {
     }
     #quiz-wrapper {
         flex-direction: row;
+        height: 75%;
     }
     #quizQuestions-wrapper{
         align-self: center;
@@ -965,7 +967,7 @@ select > option {
         height: 70%;
     }
     #timer-wrapper {
-        height: 25%;
+        height: 30%;
     }
     #questionText {
         font-size: 1.4em;
