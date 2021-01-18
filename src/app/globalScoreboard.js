@@ -34,7 +34,7 @@ const createList = function() {
   }
 };
 
-const saveScoreGlobally = function(playerName, playerScore) {
+const saveGlobalSCores = function(playerName, playerScore) {
   let body = { name: playerName, score: playerScore };
   fetch(url, {
     method: 'POST',
@@ -72,4 +72,4 @@ const getGlobalScores = function() {
   json files that you can create as You want without strick restriction of usuall
    API.  */
 
-export { getGlobalScores, saveScoreGlobally, ulGlobDivs };
+export { getGlobalScores, saveGlobalSCores, ulGlobDivs};
