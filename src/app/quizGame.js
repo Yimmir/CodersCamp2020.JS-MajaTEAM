@@ -1,6 +1,8 @@
 import {generateQuestion} from './questionGenerator';
 import {getRandomIntInclusive} from './random';
 import {player} from './player';
+import { timer } from "./timer.js";
+import { playTime } from './difficulty';
 
 const MAX_POINTS = 20;
 
@@ -14,6 +16,9 @@ export const startQuiz = (mode) => {
   player.correctAnswersInfo = 0;
   availableQuestionsIDs = [...mode.availableIDs];
   getQuestion(mode);
+  timer(playTime);
+  // timer(player.correctAnswer);
+
 }
 
 const getQuestion = async(mode) => {
