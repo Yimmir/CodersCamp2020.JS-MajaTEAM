@@ -1,6 +1,23 @@
 # Coders Camp 2020 | Projekt Zespołowy | JavaScript
 
-[TOC]
+  * [Zespół projektowy](#zespół-projektowy)
+  * [Star Wars Quiz](#star-wars-quiz)
+    + [Demo](#demo)
+    + [Cel projektu](#cel-projektu)
+    + [Działanie aplikacji](#działanie-aplikacji)
+      - [Ekran startowy](#ekran-startowy)
+      - [Menu Główne](#menu-główne)
+        * [Start](#start)
+        * [Rules](#rules)
+        * [Highscores](#highscores)
+      - [Rozgrywka - Quiz](#rozgrywka---quiz)
+    + [Zmiany wprowadzone w wymaganiach](#zmiany-wprowadzone-w-wymaganiach)
+    + [Zrealizowane dodatkowe zadania](#zrealizowane-dodatkowe-zadania)
+  * [Development aplikacji](#development-aplikacji)
+    + [Wykorzystywane technologie](#wykorzystywane-technologie)
+    + [Uruchomienie projektu](#uruchomienie-projektu)
+    + [Uruchomienie testów](#uruchomienie-testów)
+    + [Organizacja pracy](#organizacja-pracy)
 
 ## Zespół projektowy
 
@@ -60,7 +77,7 @@ Ekran zawierający krótkie wprowadzenie fabularne jak i opis zasad gry.
 
 Ekran, na którym są wyświetlane najlepsze wyniki. Został podzielony na dwie sekcje: wyniki lokalne (Local Scores) zapisujące się w local storage oraz globalne (Global Scores) przechowywane w zewnętrznej bazie danych.
 
-#### Rozgrywka — Quiz
+#### Rozgrywka - Quiz
 
 Rozgrywka polega na rozpoznawaniu przez użytkownika postaci, pojazdów lub statków kosmicznych (w zależności od wybranej kategorii). Graczowi przedstawiane jest zdjęcie oraz pytanie o to co się na nim znajduje. Do wyboru ma 4 odpowiedzi, z których tylko jedna jest prawidłowa. Po kliknięciu na wybranej odpowiedzi gracz otrzymuje odpowiedź w postaci zmiany koloru opcji na zielony w przypadku prawidłowej odpowiedzi lub czerwony w przypadku gdy odpowiedział błędnie. Prawidłowe odpowiedzi przybliżają statek gracza do głównego celu jakim jest Gwiazda Śmierci. Celem jest odpowiedź na 20 pytań przed upływem czasu. Jeżeli to się uda Gwiazda Śmierci zostaje zniszczona a gracz jest nagradzany miesjcem w tabeli wyników. Czas na ukończenie quizu zależy od wybranego poziomu trudności 
 
