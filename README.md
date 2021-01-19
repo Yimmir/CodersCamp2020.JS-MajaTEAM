@@ -1,5 +1,7 @@
 # Coders Camp 2020 | Projekt Zespołowy | JavaScript
 
+[TOC]
+
 ## Zespół projektowy
 
 Zespół pracował w ramach kursu [CodersCamp](https://coderscamp.pl/).
