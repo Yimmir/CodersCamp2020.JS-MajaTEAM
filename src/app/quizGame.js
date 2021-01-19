@@ -17,6 +17,10 @@ let possiblityToAnswer = false;  //used to prevent answering mulitple times the 
 export const startQuiz = (mode) => {
   player.correctAnswersInfo = 0;
   availableQuestionsIDs = [...mode.availableIDs];
+  let answerBoxes = document.querySelectorAll(".answer")
+  for (let i = 0; i < answerBoxes.length; i++) {
+    answerBoxes[i].classList.remove("correct","incorrect","no-hover");
+  }
   getQuestion(mode);
   timer(playTime);
   for (let i = 0; i < answerElements; i++) {
