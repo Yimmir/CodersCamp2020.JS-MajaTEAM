@@ -31,11 +31,11 @@ const getQuestion = async(mode) => {
   const questionIndex = getRandomIntInclusive(0, availableQuestionsIDs.length-1);
   currentQuestionID = availableQuestionsIDs[questionIndex];
   availableQuestionsIDs.splice(questionIndex, 1);    //delete current question from the available question array
-  quizWrapper.style.display = 'none';
-  loaderQ.style.display = 'block';
+  //quizWrapper.style.display = 'none'; Will be added to the first question only
+  //loaderQ.style.display = 'block';
   await displayQuestion(mode, currentQuestionID);
-  quizWrapper.style.display = 'flex';
-  loaderQ.style.display = 'none';
+  //quizWrapper.style.display = 'flex';
+ // loaderQ.style.display = 'none';
 };
 
 const displayQuestion = async(mode, id) => {
