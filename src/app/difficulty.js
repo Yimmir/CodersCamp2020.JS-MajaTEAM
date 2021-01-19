@@ -1,4 +1,4 @@
- const level = document.querySelector("select");
+ export const level = document.querySelector("select");
  export let playTime = timeInSeconds();
     
  function timeInSeconds() {
