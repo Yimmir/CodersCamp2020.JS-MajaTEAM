@@ -927,6 +927,13 @@ select > option {
 
 /* Dla trybu landscape */
 
+@media only screen and (max-width: 600px) {
+    .answer:not(.no-hover):hover {
+        background-color: var(--yelow);
+        box-shadow: none;
+    }
+}
+
 @media (orientation: landscape) {
     .lift {
         transform: translateY(-15%);
@@ -1004,5 +1011,10 @@ select > option {
     }
     #creditsText {
         font-size: max(0.9em, 12px);
+    }
+
+    .loader {
+        width: 80px;
+        height: 80px;
     }
 }

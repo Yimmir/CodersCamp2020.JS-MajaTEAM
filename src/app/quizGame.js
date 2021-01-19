@@ -8,6 +8,8 @@ const MAX_POINTS = 20;
 
 const questionElement = document.getElementById('quizImage');
 const answerElements = document.getElementsByClassName('answer');
+const loaderQ = document.getElementById('quiz-loader');
+const quizWrapper = document.getElementById('quiz-wrapper');
 let currentQuestionID = 0;
 let availableQuestionsIDs = [];
 let possiblityToAnswer = false;  //used to prevent answering mulitple times the same question
@@ -29,8 +31,12 @@ const getQuestion = async(mode) => {
   const questionIndex = getRandomIntInclusive(0, availableQuestionsIDs.length-1);
   currentQuestionID = availableQuestionsIDs[questionIndex];
   availableQuestionsIDs.splice(questionIndex, 1);    //delete current question from the available question array
+  quizWrapper.style.display = 'none';
+  loaderQ.style.display = 'block';
   await displayQuestion(mode, currentQuestionID);
-}
+  quizWrapper.style.display = 'flex';
+  loaderQ.style.display = 'none';
+};
 
 const displayQuestion = async(mode, id) => {
   const question  = await generateQuestion(mode, id);
