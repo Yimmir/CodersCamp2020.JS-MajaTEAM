@@ -13,7 +13,6 @@ const url = 'https://swquizzscoreboard123-default-rtdb.firebaseio.com/scores.jso
 const createList = function() {
   if (globalScores) {
     globalScores.sort(compareScores);
-    console.log("clicked");
     let globalLp = 1;
     globalScores.forEach((value) => {
       ulGlobDivs.forEach((value1) => {
