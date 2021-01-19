@@ -10,12 +10,15 @@ const questionElement = document.getElementById('quizImage');
 const answerElements = document.getElementsByClassName('answer');
 const loaderQ = document.getElementById('quiz-loader');
 const quizWrapper = document.getElementById('quiz-wrapper');
+const timerWrapper = document.getElementById('timer-wrapper');
 let currentQuestionID = 0;
 let availableQuestionsIDs = [];
 let possiblityToAnswer = false;  //used to prevent answering mulitple times the same question
+let firstQuestion = true;
 
 export const startQuiz = (mode) => {
   player.correctAnswersInfo = 0;
+  firstQuestion = true;
   availableQuestionsIDs = [...mode.availableIDs];
   getQuestion(mode);
   timer(playTime);
@@ -23,7 +26,6 @@ export const startQuiz = (mode) => {
     answerElements[i].classList.remove('correct','incorrect');
   }
   // timer(player.correctAnswer);
-
 }
 
 const getQuestion = async(mode) => {
@@ -31,11 +33,18 @@ const getQuestion = async(mode) => {
   const questionIndex = getRandomIntInclusive(0, availableQuestionsIDs.length-1);
   currentQuestionID = availableQuestionsIDs[questionIndex];
   availableQuestionsIDs.splice(questionIndex, 1);    //delete current question from the available question array
-  //quizWrapper.style.display = 'none'; Will be added to the first question only
-  //loaderQ.style.display = 'block';
+  if(firstQuestion) {
+    quizWrapper.style.display = 'none';
+    timerWrapper.style.display = 'none';
+    loaderQ.style.display = 'flex';
+  }
   await displayQuestion(mode, currentQuestionID);
-  //quizWrapper.style.display = 'flex';
- // loaderQ.style.display = 'none';
+  if(firstQuestion) {
+    quizWrapper.style.display = 'flex';
+    timerWrapper.style.display = 'grid';
+    loaderQ.style.display = 'none';
+    firstQuestion = false;
+  }
 };
 
 const displayQuestion = async(mode, id) => {
