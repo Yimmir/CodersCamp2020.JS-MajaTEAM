@@ -421,6 +421,15 @@ select > option {
     position: relative;
 }
 
+.loaderWrapper {
+    height: 100%;
+    display: flex;
+}
+
+.loaderWrapper .loader {
+    align-self: center;
+}
+
 .text {
     font-family: swText;
     font-weight: lighter;
